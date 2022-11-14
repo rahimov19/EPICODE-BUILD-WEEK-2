@@ -10,6 +10,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
@@ -17,7 +18,41 @@
   <body>
     <div class="container-fluid vh-100">
       <div class="row content">
-        <div class="col-2 sidebar">Hello</div>
+        <div class="col-2 sidebar pl-3">
+          <img class="logo mt-2" src="img/logo.png" />
+          <div class="links-container d-flex flex-column mt-3 ml-0">
+            <div class="link d-flex p-2 pl-0 mt-1">
+              <i class="fa-solid fa-house mt-1"></i>
+              <a href="#" class="ml-4">Home</a>
+            </div>
+            <div class="link d-flex p-2 mt-1">
+              <i class="fa-solid fa-magnifying-glass mt-1"></i>
+              <a href="#" class="ml-4">Search</a>
+            </div>
+            <div class="link d-flex p-2 mt-1">
+              <i class="fa-solid fa-book mt-1"></i>
+              <a href="#" class="ml-4">Your Library</a>
+            </div>
+          </div>
+          <div class="box-links d-flex flex-column mt-4">
+            <div class="box-link d-flex p-2">
+              <div
+                class="playlist-box d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </div>
+              <a href="#" class="ml-3">Create Playlist</a>
+            </div>
+            <div class="box-link d-flex p-2">
+              <div
+                class="liked-box d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <a href="#" class="ml-3">Liked Songs</a>
+            </div>
+          </div>
+        </div>
         <div class="col-10 main-content">World</div>
       </div>
       <div class="row vh-25 footer">
@@ -35,6 +70,10 @@
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/e1177dc7ed.js"
     crossorigin="anonymous"
   ></script>
 </html>
