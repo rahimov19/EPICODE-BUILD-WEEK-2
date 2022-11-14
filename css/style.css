@@ -86,3 +86,31 @@ body {
     rgba(96, 13, 179, 0.873) 50%
   );
 }
+
+.playlists {
+  overflow-y: none;
+  max-height: 300px;
+  border-top: 2px solid rgb(76, 72, 72);
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #bcab8c;
+}
+.playlists::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.playlists::-webkit-scrollbar {
+  width: 10px;
+}
+
+.playlists::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 0.7rem;
+}
