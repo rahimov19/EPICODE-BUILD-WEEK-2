@@ -117,9 +117,6 @@ body {
   font-size: 0.7rem;
 }
 
-.footer-middle {
-  background-color: green;
-}
 .footer-right {
   background-color: blue;
 }
@@ -147,4 +144,15 @@ body {
 .album-info-icons {
   color: #bcab8c;
   font-weight: 300;
+}
+
+.player-controls {
+  width: 35%;
+}
+
+.player-controls .circle {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: black;
 }
