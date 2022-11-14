@@ -12,13 +12,56 @@
     />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>Albums</title>
   </head>
+  <style>
+    #album-cover {
+      object-fit: contain;
+    }
+
+    #background-container {
+      background: linear-gradient(
+        0deg,
+        rgba(18, 18, 18, 1) 50%,
+        rgba(191, 206, 175, 1) 100%
+      );
+    }
+  </style>
   <body>
     <div class="container-fluid vh-100">
       <div class="row content">
         <div class="col-2 sidebar">Hello</div>
-        <div class="col-10 main-content">World</div>
+        <div class="col-10 main-content" id="background-container">
+          <!-- Top part -->
+          <div class="row">
+            <div class="col-10">Two arrow buttons</div>
+            <div class="col-2">Profile</div>
+          </div>
+
+          <div class="row align-items-end">
+            <div class="col-4" id="albumContainer">
+              <!-- src="6224982" -->
+              <img
+                id="album-cover"
+                src="https://cdns-images.dzcdn.net/images/cover/63daf31bbadb935451320dac6423bacf/264x264.jpg"
+              />
+            </div>
+            <div class="row col-8">
+              <span class="col-12 pl-0">ALBUM</span>
+              <h2 class="col-12 pl-0">ALBUM TITLE</h2>
+              <div class="row col-12">
+                <div>
+                  <img src="artist-image" alt="artist-name-picture" />
+                </div>
+                <!-- <text><span class="bold">${}</span>${} ${} ${}</text> -->
+                <span class="bold">Artist name</span>
+                <span class="pl-1">Album year</span>
+                <span class="pl-1">Number of songs </span>
+                <span class="pl-1">Album lenght</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row vh-25 footer">
         <div class="col-3 footer-left">Hello</div>
@@ -27,6 +70,36 @@
       </div>
     </div>
   </body>
+  <script>
+    //Trying to use ThiefColor to obatin the main color of the image
+    //then use it as the top background golor, gradient to grey color
+    // const albumCover = document.querySelector("#album-cover");
+    // console.log(albumCover);
+    // let colorThief = new ColorThief();
+    // colorThief.getColor(albumCover);
+    // albumCover.style.backgroundColor = colorThief.getColor(albumCover);
+
+    const baseURL = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
+    const container = document.querySelector("#albumContainer");
+
+    console.log(container);
+    const getAlbum = async () => {
+      let unreadableData = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/album/6224982"
+      ); //albumId must be dynamic
+      // If you use {} you are deconstructing it
+      let albums = await unreadableData.json();
+      console.log(albums);
+    };
+
+    // renderAlbums(album);
+
+    window.onload = () => {
+      getAlbum();
+    };
+  </script>
+  <!-- <script src="js/color-thief.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
