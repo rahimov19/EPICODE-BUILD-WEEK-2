@@ -1,0 +1,46 @@
+.sideImg {
+  height: 10em;
+  margin-bottom: 1em;
+  object-fit: contain;
+  align-self: flex-start;
+}
+#leftSearch {
+  display: flex;
+  flex-direction: column;
+  padding: 3em;
+  background-color: rgba(145, 145, 145, 0.563);
+}
+#searchbar {
+  margin-top: 2em;
+  border-radius: 20px;
+  height: 2.5em;
+  padding-left: 1em;
+  width: 20em;
+}
+ul {
+  list-style-type: none;
+}
+#rightSearch li {
+  margin: 0.3em;
+}
+#searchAlbums div div,
+#searchArtists div div {
+  background-color: rgba(145, 145, 145, 0.563);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18em;
+}
+
+#searchAlbums div div p {
+  margin: 0;
+}
+.cardimg {
+  width: 10em;
+  object-fit: contain;
+  margin-inline: auto;
+}
+h2 {
+  margin-block: 1em;
+}
