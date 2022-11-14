@@ -89,7 +89,7 @@ body {
 
 .playlists {
   overflow-y: none;
-  max-height: 300px;
+  max-height: 35%;
   border-top: 2px solid rgb(76, 72, 72);
   font-weight: 300;
   font-size: 0.9rem;
@@ -142,6 +142,7 @@ body {
 .album-info-icons {
   color: #bcab8c;
   font-weight: 300;
+  font-size: 0.8rem;
 }
 
 .player-controls {
@@ -153,4 +154,33 @@ body {
   height: 30px;
   background-color: white;
   color: black;
+}
+
+.song-duration {
+  color: #bcab8c;
+  font-size: 0.7rem;
+}
+
+.playtime {
+  height: 3px;
+  width: 70vh;
+  background-color: gray;
+  border-radius: 2px;
+}
+
+.footer-right-icons i {
+  margin-right: 15px;
+  font-size: 0.8rem;
+  color: #bcab8c;
+}
+
+.volume-bar {
+  width: 10vh;
+  height: 3px;
+  background-color: rgb(205, 201, 201);
+  border-radius: 2px;
+}
+.footer {
+  position: fixed;
+  width: 100%;
 }
