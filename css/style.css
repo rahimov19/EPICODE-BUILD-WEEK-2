@@ -96,8 +96,7 @@ body {
   color: #bcab8c;
 }
 .playlists::-webkit-scrollbar-track {
-  border: solid 3px transparent;
-  background: #f1f1f1;
+  background: #000000;
 }
 
 .playlists::-webkit-scrollbar {
@@ -106,7 +105,10 @@ body {
 
 .playlists::-webkit-scrollbar-thumb {
   background: #888;
-  border: solid 3px transparent;
+}
+
+.playlists::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .circle {
