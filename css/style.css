@@ -1,0 +1,30 @@
+/* 
+The following colour codes are the most common codes that are used in the application
+
+Green: #1fdf64
+Background Grey: #121212
+Black: #000000
+Footer background: #181818
+
+*/
+
+body {
+  color: white;
+}
+
+.content {
+  height: 90vh;
+}
+
+.sidebar {
+  background-color: #000000;
+}
+
+.main-content {
+  background-color: #121212;
+}
+
+.footer {
+  background: #181818;
+  height: 10vh;
+}
