@@ -275,7 +275,7 @@ body {
   background: linear-gradient(
     180deg,
     rgba(62, 62, 62, 0.9783263647255778) 0%,
-    rgba(0, 0, 0, 1) 35%
+    rgba(0, 0, 0, 1) 50%
   );
 }
 
@@ -284,4 +284,69 @@ body {
   height: 40px;
   background-color: #1fdf64;
   border-radius: 50%;
+}
+
+.follow button {
+  font-size: 0.7rem;
+  width: 70px;
+}
+
+.headings {
+  width: 85%;
+}
+
+.songs-container {
+  width: 75%;
+  height: 20vh;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.album-thumbnail {
+  width: 35px;
+  height: 35px;
+}
+
+.playing {
+  color: green;
+}
+
+.track-number {
+  width: 3%;
+}
+
+.album-thumbnail-container {
+  width: 5%;
+}
+
+.song-title {
+  width: 50%;
+}
+
+.play-counter {
+  width: 40%;
+}
+
+.artist-pick {
+  width: 15%;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.plays {
+  color: #bcab8c;
+  font-size: 0.8rem;
+}
+.pick-category {
+  color: #bcab8c;
+  font-size: 0.7rem;
+}
+.song-length {
+  color: #bcab8c;
+  font-size: 0.8rem;
+}
+
+.artist-pick-album-cover {
+  width: 50px;
+  height: 50px;
 }
