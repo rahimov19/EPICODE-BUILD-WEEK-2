@@ -248,6 +248,8 @@ body {
   height: 45vh;
   z-index: 0;
   opacity: 50%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .verified {
