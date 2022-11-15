@@ -285,3 +285,30 @@ body {
   background-color: #1fdf64;
   border-radius: 50%;
 }
+
+#album-cover-album {
+  -webkit-box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
+  box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
+  object-fit: contain;
+}
+
+#background-container-album {
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 50%,
+    rgba(191, 206, 175, 1) 100%
+  );
+}
+
+#main-container-album {
+  background-color: rgba(18, 18, 18, 0.4);
+}
+
+.tracklist-album {
+  background-color: transparent;
+}
+
+/* #tracklist-table-album {
+   z-index: 1; 
+   opacity: 1; 
+}  */
