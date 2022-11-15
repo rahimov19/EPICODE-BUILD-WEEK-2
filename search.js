@@ -34,11 +34,15 @@ let rightSideSeacrh = document.querySelector("#rightSearch");
 let albumsSearch = document.querySelector("#searchAlbums");
 let artistsSearch = document.querySelector("#searchArtists");
 
-let fillLeft = function (listOfSearch) {
+let clearAll = function () {
   leftSideSearch.innerHTML = "";
   rightSideSeacrh.innerHTML = "";
   albumsSearch.innerHTML = "";
   artistsSearch.innerHTML = "";
+};
+
+let fillLeft = function (listOfSearch) {
+  clearAll();
 
   leftSideSearch.innerHTML = `<a href="#" class="aleftInside"><div class=leftInside><img src=${listOfSearch.data[0].album.cover_medium} class="sideImg" alt="">
     <h3>${listOfSearch.data[0].album.title}</h3>
@@ -101,5 +105,43 @@ const getSongs2 = async (event) => {
     } catch (error) {
       console.error(error);
     }
+  }
+};
+
+let allButton = document.querySelector("#searchAllButton");
+let songsButton = document.querySelector("#searchSongsButton");
+let albumsButton = document.querySelector("#searchAlbumsButton");
+let artistsButton = document.querySelector("#searchArtistsButton");
+let mainRow = document.querySelector("#mainRow");
+
+const fillSearchSongs = async () => {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
+    const response = await fetch(
+      `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchBar.value}`,
+      options
+    );
+    if (response.ok) {
+      const listOfSearch = await response.json();
+      clearAll();
+      mainRow.innerHTML = "";
+      mainRow.innerHTML = `
+<div class="col-12"> 
+<ul class="songsUl">
+<li>
+</ul>
+</div>
+`;
+    } else {
+      console.log("Error while fetching");
+    }
+  } catch (error) {
+    console.error(error);
   }
 };

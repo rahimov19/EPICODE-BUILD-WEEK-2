@@ -78,13 +78,22 @@
           </div>
           <div id="searchbardiv">
             <i class="bi bi-search lupa"> </i> <input type="text" id="searchbar" placeholder="What do you want to Listen"></input>
+           
+                <button class="btn btn-dark searchbuttons active" id="searchAllButton">All</button>
+                <button class="btn btn-dark searchbuttons" id="searchSongsButton">Songs</button>
+                <button class="btn btn-dark searchbuttons" id="searchArtistsButton">Artists</button>
+                <button class="btn btn-dark searchbuttons" id="searchAlbumsButton">Albums</button>
+            
         </div>
+      
           <div class="col-10 main-content">     
     <div class="row" id="undersearch">
         <div class="col-3"><h3>Best Result:</h3></div>
-<div class="col-9 pl-5">        <h3>Songs:</h3></div></div>
+        <div class="col-9 pl-5"><h3>Songs:</h3></div>
+       
+    </div>
 
-    <div class="row"> 
+    <div class="row" id="mainrow"> 
         <div class="col-3" id="leftSearch">
         <img src="" alt="">
         <h3>Name of Album</h3>

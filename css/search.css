@@ -131,3 +131,9 @@ a {
 .duration {
   margin-block: auto;
 }
+.searchbuttons {
+  margin-left: 0.7em;
+  border-radius: 20px;
+  padding-inline: 1.2em;
+  font-weight: 300;
+}
