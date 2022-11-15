@@ -56,3 +56,6 @@ img.col-11 {
 #undersearch {
   margin-top: 4em;
 }
+a:hover {
+  color: aliceblue;
+}

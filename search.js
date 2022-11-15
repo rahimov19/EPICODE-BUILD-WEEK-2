@@ -8,7 +8,7 @@ async function getSongs() {
     },
   };
   const response = await fetch(
-    `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchBar.value}`,
+    `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchBar.value}`,
     options
   );
 
@@ -93,7 +93,7 @@ const getSongs2 = async (event) => {
         },
       };
       const response = await fetch(
-        `https://deezerdevs-deezer.p.rapidapi.com/search?q=${event.target.value}`,
+        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${event.target.value}`,
         options
       );
       if (response.ok) {
@@ -124,7 +124,7 @@ const fillSearchSongs = async () => {
       },
     };
     const response = await fetch(
-      `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchBar.value}`,
+      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchBar.value}`,
       options
     );
     if (response.ok) {
