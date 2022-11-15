@@ -12,21 +12,256 @@
     />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>Albums</title>
   </head>
+  <style></style>
   <body>
     <div class="container-fluid vh-100">
       <div class="row content">
-        <div class="col-2 sidebar">Hello</div>
-        <div class="col-10 main-content">World</div>
+        <div class="col-2 sidebar pl-3">
+          <img class="logo mt-2" src="img/logo.png" />
+          <div class="links-container d-flex flex-column mt-3 ml-0">
+            <div class="link d-flex p-2 pl-0 mt-1">
+              <i class="fa-solid fa-house mt-1"></i>
+              <a href="#" class="ml-4">Home</a>
+            </div>
+            <div class="link d-flex p-2 mt-1">
+              <i class="fa-solid fa-magnifying-glass mt-1"></i>
+              <a href="#" class="ml-4">Search</a>
+            </div>
+            <div class="link d-flex p-2 mt-1">
+              <i class="fa-solid fa-book mt-1"></i>
+              <a href="#" class="ml-4">Your Library</a>
+            </div>
+          </div>
+          <div class="box-links d-flex flex-column mt-4">
+            <div class="box-link d-flex p-2">
+              <div
+                class="playlist-box d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </div>
+              <a href="#" class="ml-3">Create Playlist</a>
+            </div>
+            <div class="box-link d-flex p-2">
+              <div
+                class="liked-box d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <a href="#" class="ml-3">Liked Songs</a>
+            </div>
+          </div>
+          <div class="playlists mt-2 pt-1 overflow-auto">
+            <div class="playlist-link my-1">Funky Heavy Bluesy</div>
+            <div class="playlist-link my-1">Your Top Songs 2020</div>
+            <div class="playlist-link my-1">In Love With You - Erykah...</div>
+            <div class="playlist-link my-1">This is Rod Stewart</div>
+            <div class="playlist-link my-1">FRANCHISE ft. Young Thug...</div>
+            <div class="playlist-link my-1">Your Top Songs 2019</div>
+            <div class="playlist-link my-1">Palleggio</div>
+            <div class="playlist-link my-1">This is Joe Bonamassa</div>
+            <div class="playlist-link my-1">Jun19</div>
+            <div class="playlist-link my-1">Jack 30th Party 2</div>
+            <div class="playlist-link my-1">Jacks 30th Party</div>
+            <div class="playlist-link my-1">This is Opeth</div>
+            <div class="playlist-link my-1">Metal Ballads</div>
+            <div class="playlist-link my-1">New Playlist</div>
+            <div class="playlist-link my-1">Your top Songs 2018</div>
+            <div class="playlist-link my-1">
+              Jazz Classics Blue Note Editio...
+            </div>
+          </div>
+          <div class="install mt-3 d-flex">
+            <div
+              class="circle d-flex justify-content-center align-items-center mt-1 mr-2"
+            >
+              <i class="fa-solid fa-arrow-down"></i>
+            </div>
+            <a href="#">Install App</a>
+          </div>
+        </div>
+        <div class="col-10 main-content" id="background-container-album">
+          <!-- Top part -->
+          <div class="row my-3">
+            <div class="col-10">
+              <div
+                class="nav-circle mr-3 d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+              <div
+                class="nav-circle-inactive d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="user-menu d-flex align-items-center">
+                <img class="user-image" src="img/profile-image.jpg" />
+                <span>Diego 'Ziba' Ba...</span>
+                <i class="fa-solid fa-caret-down"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Album part -->
+          <div class="row align-items-end my-4">
+            <div class="col-4" id="albumContainer">
+              <!-- src="6224982" -->
+              <img
+                id="album-cover-album"
+                src="https://cdns-images.dzcdn.net/images/cover/63daf31bbadb935451320dac6423bacf/264x264.jpg"
+              />
+            </div>
+            <div class="row col-8">
+              <span class="col-12 pl-0">ALBUM</span>
+              <h2 class="col-12 pl-0">ALBUM TITLE</h2>
+              <div class="row col-12">
+                <div>
+                  <img src="artist-image" alt="artist-name-picture" />
+                </div>
+                <!-- <text><span class="bold">${}</span>${} ${} ${}</text> -->
+                <span class="bold">Artist name</span>
+                <span class="pl-1">Album year</span>
+                <span class="pl-1">Number of songs </span>
+                <span class="pl-1">Album lenght</span>
+              </div>
+            </div>
+          </div>
+          <!-- Buttons part -->
+          <div class="row justify-content-start" id="main-container-album">
+            <div class="col-1">Play</div>
+            <!-- Heart should turn red when selected -->
+            <div class="col-1">Heart</div>
+            <div class="col-1">. . .</div>
+            <div class="col-12 p-0">
+              <div
+                class="d-flex justify-content-between tracklist-album border-bottom mx-5"
+              >
+                <text
+                  class="ml-3 mr-2 text-center"
+                  style="background-color: green"
+                  >#</text
+                >
+                <text class="flex-grow-1" style="background-color: red"
+                  >TITLE</text
+                >
+                <div
+                  class="ml-2 mr-4 text-center"
+                  style="background-color: green"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-clock"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+                    />
+                    <path
+                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <!-- WIP: Working on the list col/flex-grow -->
+              <!-- <ol class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between tracklist-album"
+                >
+                  <span class="ml-3 mr-2 text-center">1</span>
+                  <div class="flex-grow-1" style="background-color: red">
+                    <text class="fw-bold">Song Title</text>
+                    <text class="d-block fw-light">artist name</text>
+                  </div>
+                  <span class="ml-2 mr-4 text-center">2:23</span>
+                </li>
+              </ol> -->
+            </div>
+          </div>
+          <div class="row"></div>
+        </div>
       </div>
-      <div class="row vh-25 footer">
-        <div class="col-3 footer-left">Hello</div>
-        <div class="col-6 footer-middle">World</div>
-        <div class="col-3 footer-right">World</div>
+      <div class="row vh-25 footer justify-content-center align-items-center">
+        <div class="col-4 footer-left d-flex align-items-center">
+          <img class="album-cover-footer" src="img/album-cover.jpg" />
+          <div class="album-info d-flex flex-column ml-2">
+            <span class="song">
+              Another one bites the Dust - Remastered 2011
+            </span>
+            <span class="artist">Queen</span>
+          </div>
+          <div class="album-info-icons ml-4">
+            <i class="fa-regular fa-heart mr-2"></i>
+            <i class="fa-solid fa-maximize ml-2"></i>
+          </div>
+        </div>
+        <div class="col-5 footer-middle d-flex flex-column align-items-center">
+          <div
+            class="player-controls d-flex justify-content-between align-items-center"
+          >
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-backward-step"></i>
+            <div
+              class="circle d-flex justify-content-center align-items-center"
+            >
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <i class="fa-solid fa-forward-step"></i>
+            <i class="fa-solid fa-repeat"></i>
+          </div>
+          <div class="song-duration d-flex align-items-center mt-2">
+            <span>0:12</span>
+            <div class="playtime mx-2"></div>
+            <span>3:34</span>
+          </div>
+        </div>
+        <div
+          class="col-3 footer-right d-flex justify-content-end align-items-center"
+        >
+          <div class="footer-right-icons">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-brands fa-chromecast"></i>
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          <div class="volume-bar"></div>
+        </div>
       </div>
     </div>
   </body>
+  <script>
+    //Trying to use ThiefColor to obatin the main color of the image
+    //then use it as the top background golor, gradient to grey color
+    // const albumCover = document.querySelector("#album-cover");
+    // console.log(albumCover);
+    // let colorThief = new ColorThief();
+    // colorThief.getColor(albumCover);
+    // albumCover.style.backgroundColor = colorThief.getColor(albumCover);
+
+    const baseURL = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
+    const container = document.querySelector("#albumContainer");
+
+    console.log(container);
+    const getAlbum = async () => {
+      let unreadableData = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/album/6224982"
+      ); //albumId must be dynamic
+      // If you use {} you are deconstructing it
+      let albums = await unreadableData.json();
+      console.log(albums);
+    };
+
+    // renderAlbums(album);
+
+    window.onload = () => {
+      getAlbum();
+    };
+  </script>
+  <!-- <script src="js/color-thief.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
