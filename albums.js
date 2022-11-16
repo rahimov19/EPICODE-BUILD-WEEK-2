@@ -29,35 +29,38 @@ let fillDataAlbum = function (listOfData) {
   albumInfoContainer.innerHTML = "";
   albumInfoContainer.innerHTML = `
   <div class="row">
-    <div class="col-2" id="albumLeft"><img src=${listOfData.cover_xl}></div>
+    <div class="col-2" id="albumLeft"><img id="album-cover-album" src=${
+      listOfData.cover_xl
+    }></div>
     <div class="col-10" id="albumRight">
-      <div class="albumtext">
-        <p class="albumsmalltext">Album</p>
-        <h2 class="albumname">${listOfData.title}</h2>
+      <div class="album-text">
+        <p class="album-small-text">ALBUM</p>
+        <h2 class="album-name">${listOfData.title}</h2>
         <div>
-          <img src=${listOfData.artist.picture_small}>
-          <span>${listOfData.tracks.data.length} Songs</span>
+          <img id="artist-small-pic" src=${listOfData.artist.picture_small}>
+          <span>ARTIST NAME</span>
+          <span>${listOfData.tracks.data.length} songs</span>
           <span>${
             (listOfData.duration - (listOfData.duration %= 60)) / 60 +
             (9 < listOfData.duration ? ":" : ":0") +
             listOfData.duration
           } 
         </div>
-       
-    </div>
-  `;
+       </div>`;
 };
 
 let fillDataSongs = function (listOfData) {
-  tracklistContainer.innerHTML = `<li class="row">
+  tracklistContainer.innerHTML = `<li class="row border-bottom align-items-center">
   <span>#</span>
   <div class="song"><span class="my-auto">Title</span></div>
-  <span>Duration</span>`;
+  <span><i class="bi bi-clock pr-2"></i></span>`;
   for (i = 0; i < listOfData.tracks.data.length; i++) {
     tracklistContainer.innerHTML += `
-  <li class="row">
+  <li class="row align-items-center">
     <span>${[i + 1]}</span>
-    <div class="song"><span>${listOfData.tracks.data[i].title}</span><span>${
+    <div class="song"><span>${
+      listOfData.tracks.data[i].title
+    }</span><span class="fw-light">${
       listOfData.tracks.data[i].artist.name
     } </span></div>
     <span>${
@@ -67,8 +70,6 @@ let fillDataSongs = function (listOfData) {
       (9 < listOfData.tracks.data[i].duration ? ":" : ":0") +
       listOfData.tracks.data[i].duration
     }</span>
-
-
-  `;
+`;
   }
 };

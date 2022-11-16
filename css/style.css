@@ -302,9 +302,9 @@ body {
   );
 }
 
-#main-container-album {
-  background-color: rgb(18, 18, 18);
-}
+/* #main-container-album {
+  background-color: rgba(207, 31, 31, 0.9);
+} */
 
 .tracklist-album {
   background-color: transparent;
@@ -315,12 +315,13 @@ body {
    opacity: 1; 
 }  */
 
-.play-button {
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 100px 0 100px 200px;
-  border-color: transparent transparent transparent #ffffff;
-  background-color: #1fdf64;
-  transform: rotate(0deg);
+/* #play-icon {
+  color: #1fdf64;
+  background-color: white;
+  border-radius: 30px;
+} */
+
+#artist-small-pic {
+  width: 30px;
+  border-radius: 30px;
 }
