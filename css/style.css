@@ -291,19 +291,19 @@ body {
 #album-cover-album {
   -webkit-box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
   box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
-  object-fit: contain;
+  object-fit: cover;
 }
 
 #background-container-album {
   background: linear-gradient(
     0deg,
     rgba(18, 18, 18, 1) 50%,
-    rgba(191, 206, 175, 1) 100%
+    rgb(230, 209, 24) 100%
   );
 }
 
 #main-container-album {
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgb(18, 18, 18);
 }
 
 .tracklist-album {
@@ -314,3 +314,13 @@ body {
    z-index: 1; 
    opacity: 1; 
 }  */
+
+.play-button {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 100px 0 100px 200px;
+  border-color: transparent transparent transparent #ffffff;
+  background-color: #1fdf64;
+  transform: rotate(0deg);
+}

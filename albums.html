@@ -10,6 +10,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Albums</title>
@@ -131,62 +132,35 @@
               </div>
             </div>
           </div> -->
-          </div>
           <!-- Buttons part -->
           <div class="row justify-content-start" id="main-container-album">
-            <div class="col-1">Play</div>
+            <div class="col-1 .play-button"></div>
             <!-- Heart should turn red when selected -->
             <div class="col-1">Heart</div>
             <div class="col-1">. . .</div>
             <div class="col-12 p-0">
-              <div
-                class="d-flex justify-content-between tracklist-album border-bottom mx-5"
-              >
-                <text
-                  class="ml-3 mr-2 text-center"
-                  style="background-color: green"
-                  >#</text
-                >
-                <text class="flex-grow-1" style="background-color: red"
-                  >TITLE</text
-                >
-                <div
-                  class="ml-2 mr-4 text-center"
-                  style="background-color: green"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-clock"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-                    />
-                    <path
-                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <!-- WIP: Working on the list col/flex-grow -->
-              <!-- <ol class="list-group">
+              <ul class="list-group col-12" id="tracklist">
                 <li
+                  class="list-group-item row col-12 d-flex justify-content-between tracklist-album p-0"
+                >
+                  <text class="col-1 text-center align-items-center border-bottom">#</text>
+                  <text class=" col-10 border-bottom">TITLE</text>
+                  <i class="col-1 bi bi-clock border-bottom"></i>
+                </span>
+                </li>
+                <!-- <li
                   class="list-group-item d-flex justify-content-between tracklist-album"
                 >
                   <span class="ml-3 mr-2 text-center">1</span>
-                  <div class="flex-grow-1" style="background-color: red">
+                  <div class="flex-grow-1">
                     <text class="fw-bold">Song Title</text>
                     <text class="d-block fw-light">artist name</text>
                   </div>
                   <span class="ml-2 mr-4 text-center">2:23</span>
-                </li>
-              </ol> -->
+                </li> -->
+              </ul>
             </div>
           </div>
-          <div class="row"></div>
         </div>
       </div>
       <div class="row vh-25 footer justify-content-center align-items-center">
@@ -251,6 +225,8 @@
     const albumId = 125973652; //album.id
     let albumInfoContainer = document.querySelector("#album-info-container");
     console.log(albumInfoContainer);
+    let tracklistContainer = document.querySelector("#tracklist")
+    console.log(tracklistContainer);
     fetch(baseURL + albumId)
       .then((unreadableData) => unreadableData.json())
       .then((album) => {
@@ -258,15 +234,30 @@
 
         let tracks = album.tracks.data;
         console.log(tracks.length);
-        tracks.forEach((track) =>
-          console.log(track.title, track.artist.name, track.duration)
-        );
-        let albumInfo = document.createElement("div");
+        tracks.forEach((track) => {
+        console.log(track.title, track.artist.name, track.duration)
+        let newTracks = document.createElement("li");
+        console.log(newTracks)
+        newTracks.className = ("list-group-item d-flex justify-content-between tracklist-album")
+        tracklistContainer.appendChild(newTracks)
+        newTracks.innerHTML += 
+        `<span class="ml-3 mr-2 text-center">${track.number}</span>
+        <div class="flex-grow-1">
+          <text class="fw-bold">${track.title}</text>
+          <text class="d-block fw-light">${track.artist.name}</text>
+          </div>
+          <span class="ml-2 mr-4 text-center">${track.duration}</span>`
+          
+        })
+        
+        
+        
+          let albumInfo = document.createElement("div");
         let albumDate = new Date(album.release_date);
         console.log(albumDate.getFullYear());
-        albumInfo.classList.add("col-4");
+        albumInfo.className = ("col-4 m-0");
         albumInfoContainer.appendChild(albumInfo);
-        albumInfo.innerHTML = `<div class="col-4 m-0">
+        albumInfo.innerHTML = `<div class="col-12 m-0">
       <img
       id="album-cover-album"
       src="${album.cover_medium}"
