@@ -68,7 +68,7 @@ let secondRow = document.querySelector("#secondAlbumRow");
 const fillPageAlbums = function (listOfSearch) {
   topsidecards.innerHTML = "";
   for (i = 0; i < 10; i++) {
-    topsidecards.innerHTML += `<a href="albums.html?q=${listOfSearch.data[i].album.id}>"<div class="sidecards col-2">
+    topsidecards.innerHTML += `<a href="albums.html?albumID=${listOfSearch.data[i].album.id}>"<div class="sidecards col-2">
 <img
   class="col-4"
   src="${listOfSearch.data[i].album.cover_medium}"
@@ -82,7 +82,7 @@ const fillPageAlbums = function (listOfSearch) {
 const fillPageSongs = function (listOfSongs) {
   firstRow.innerHTML = "";
   for (i = 0; i < 8; i++) {
-    firstRow.innerHTML += `<a href="artists.html?q=${listOfSongs.data[i].artist.id}>"<div class="albumCard">
+    firstRow.innerHTML += `<a href="artists.html?artistID=${listOfSongs.data[i].artist.id}>"<div class="albumCard">
         <img
           class="col-11"
           src="${listOfSongs.data[i].album.cover_medium}"
@@ -99,7 +99,7 @@ const fillPageSongs = function (listOfSongs) {
 const fillPageArtists = function (listOfArtists) {
   secondRow.innerHTML = "";
   for (i = 0; i < 8; i++) {
-    secondRow.innerHTML += `<a href="albums.html=q?${listOfArtists.data[i].album.id}>"<div class="albumCard">
+    secondRow.innerHTML += `<a href="albums.html=albumID?${listOfArtists.data[i].album.id}>"<div class="albumCard">
           <img
             class="col-11"
             src="${listOfArtists.data[i].artist.picture}"

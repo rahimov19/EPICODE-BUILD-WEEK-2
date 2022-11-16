@@ -124,6 +124,7 @@ a {
 }
 .searchCard {
   border-radius: 5px;
+  height: 20em;
 }
 #undersearch {
   margin-top: 6em;
@@ -164,25 +165,58 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 20em;
   margin-inline: 0.3em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: 0.5s;
 }
 #artistsbody {
   margin-left: 1em;
 }
-.searchArtistCard h5 {
+/* .searchArtistCard h5 {
   margin-top: 0.7em;
-}
+} */
 .albumsSearchImg {
   width: 13.5em;
-  margin-inline: auto;
-
+  margin-bottom: 0.7em;
   border-radius: 0;
 }
 .artistSearchImg {
   margin-inline: auto;
   border-radius: 50%;
+  align-self: center;
+}
+
+.searchArtistCard h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a {
+  color: inherit !important;
+}
+tr {
+  transition: 0.3s;
+}
+tr:hover {
+  background-color: #242424;
+  transition: 0.3s;
+}
+th {
+  text-align: center;
+}
+.table > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2),
+.table > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3),
+.table > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(4) {
+  text-align: start;
+}
+.searchArtistCard:hover {
+  background-color: #242424;
+  transition: 0.5s;
+}
+.searchArtistCard a {
+  width: 100%;
 }

@@ -144,10 +144,10 @@
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
-            <span class="song">
+            <span class="footer-song">
               Another one bites the Dust - Remastered 2011
             </span>
-            <span class="artist">Queen</span>
+            <span class="footer-artist">Queen</span>
           </div>
           <div class="album-info-icons ml-4">
             <i class="fa-regular fa-heart mr-2"></i>
@@ -168,9 +168,22 @@
             <i class="fa-solid fa-forward-step"></i>
             <i class="fa-solid fa-repeat"></i>
           </div>
-          <div class="song-duration"></div>
+          <div class="song-duration d-flex align-items-center mt-2">
+            <span>0:12</span>
+            <div class="playtime mx-2"></div>
+            <span>3:34</span>
+          </div>
         </div>
-        <div class="col-3 footer-right">World</div>
+        <div
+          class="col-3 footer-right d-flex justify-content-end align-items-center"
+        >
+          <div class="footer-right-icons">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-brands fa-chromecast"></i>
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          <div class="volume-bar"></div>
+        </div>
       </div>
     </div>
 
@@ -185,5 +198,9 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
+    <script
+src="https://kit.fontawesome.com/e1177dc7ed.js"
+crossorigin="anonymous"
+></script>
   </body>
 </html>
