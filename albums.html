@@ -85,29 +85,33 @@
           <!-- Top part -->
           <div class="row my-3">
             <div class="col-10">
-              <div
-                class="nav-circle mr-3 d-flex justify-content-center align-items-center"
-              >
-                <i class="fa-solid fa-chevron-left"></i>
-              </div>
-              <div
-                class="nav-circle-inactive d-flex justify-content-center align-items-center"
-              >
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="user-menu d-flex align-items-center">
-                <img class="user-image" src="img/profile-image.jpg" />
-                <span>Diego 'Ziba' Ba...</span>
-                <i class="fa-solid fa-caret-down"></i>
+              <div class="row m-3 justify-content-between top-content-bar">
+                <div class="nav-controls d-flex justify-content-between">
+                  <div
+                    class="nav-circle mr-3 d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+                  <div
+                    class="nav-circle-inactive d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </div>
+                </div>
+                <div class="user-menu d-flex align-items-center">
+                  <img class="user-image" src="img/profile-image.jpg" />
+                  <span>Diego 'Ziba' Ba...</span>
+                  <i class="fa-solid fa-caret-down"></i>
+                </div>
               </div>
             </div>
           </div>
           <!-- Album part -->
-          <div class="row align-items-end my-4">
-            <div class="col-4" id="albumContainer">
-              <!-- src="6224982" -->
+          <div
+            class="row justify-content-start align-items-end my-4"
+            id="album-info-container"
+          >
+            <!-- <div class="col-4">
               <img
                 id="album-cover-album"
                 src="https://cdns-images.dzcdn.net/images/cover/63daf31bbadb935451320dac6423bacf/264x264.jpg"
@@ -120,13 +124,13 @@
                 <div>
                   <img src="artist-image" alt="artist-name-picture" />
                 </div>
-                <!-- <text><span class="bold">${}</span>${} ${} ${}</text> -->
                 <span class="bold">Artist name</span>
                 <span class="pl-1">Album year</span>
                 <span class="pl-1">Number of songs </span>
                 <span class="pl-1">Album lenght</span>
               </div>
             </div>
+          </div> -->
           </div>
           <!-- Buttons part -->
           <div class="row justify-content-start" id="main-container-album">
@@ -189,10 +193,10 @@
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
-            <span class="song">
+            <span class="footer-song">
               Another one bites the Dust - Remastered 2011
             </span>
-            <span class="artist">Queen</span>
+            <span class="footer-artist">Queen</span>
           </div>
           <div class="album-info-icons ml-4">
             <i class="fa-regular fa-heart mr-2"></i>
@@ -241,24 +245,53 @@
     // colorThief.getColor(albumCover);
     // albumCover.style.backgroundColor = colorThief.getColor(albumCover);
 
+    // const URLparams = new URLSearchParams(window.location.search);
+    // const albumId = URLparams.get("albumId")
     const baseURL = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
-    const container = document.querySelector("#albumContainer");
+    const albumId = 125973652; //album.id
+    let albumInfoContainer = document.querySelector("#album-info-container");
+    console.log(albumInfoContainer);
+    fetch(baseURL + albumId)
+      .then((unreadableData) => unreadableData.json())
+      .then((album) => {
+        console.log(album.tracks.data);
 
-    console.log(container);
-    const getAlbum = async () => {
-      let unreadableData = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/album/6224982"
-      ); //albumId must be dynamic
-      // If you use {} you are deconstructing it
-      let albums = await unreadableData.json();
-      console.log(albums);
-    };
+        let tracks = album.tracks.data;
+        console.log(tracks.length);
+        tracks.forEach((track) =>
+          console.log(track.title, track.artist.name, track.duration)
+        );
+        let albumInfo = document.createElement("div");
+        let albumDate = new Date(album.release_date);
+        console.log(albumDate.getFullYear());
+        albumInfo.classList.add("col-4");
+        albumInfoContainer.appendChild(albumInfo);
+        albumInfo.innerHTML = `<div class="col-4 m-0">
+      <img
+      id="album-cover-album"
+      src="${album.cover_medium}"
+      alt="${album.name}"
+      />
+      </div>
+      <div class="row col-8 m-0">
+        <span class="col-12 pl-0">ALBUM</span>
+        <h2 class="col-12 pl-0">${album.title}</h2>
+        <div class="row col-12">
+          <div>
+            <img src="${album.artist.picture_small}" alt="${album.title}" />
+            </div>
+            <span class="bold">${album.name}</span>
+            <span class="pl-1">${albumDate.getFullYear()}</span>
+            <span class="pl-1">${album.nb_tracks}</span>
+            <span class="pl-1">${album.duration}</span>
+            </div>
+            </div>
+            </div>`;
+      });
 
-    // renderAlbums(album);
-
-    window.onload = () => {
-      getAlbum();
-    };
+    //       window.onload = () => {
+    //   getInfoAlbum();
+    // };
   </script>
   <!-- <script src="js/color-thief.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
@@ -270,6 +303,10 @@
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/e1177dc7ed.js"
     crossorigin="anonymous"
   ></script>
 </html>
