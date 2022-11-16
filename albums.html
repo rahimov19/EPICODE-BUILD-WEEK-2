@@ -109,29 +109,9 @@
           </div>
           <!-- Album part -->
           <div
-            class="row justify-content-start align-items-end my-4"
+            class="my-4"
             id="album-info-container"
           >
-            <!-- <div class="col-4">
-              <img
-                id="album-cover-album"
-                src="https://cdns-images.dzcdn.net/images/cover/63daf31bbadb935451320dac6423bacf/264x264.jpg"
-              />
-            </div>
-            <div class="row col-8">
-              <span class="col-12 pl-0">ALBUM</span>
-              <h2 class="col-12 pl-0">ALBUM TITLE</h2>
-              <div class="row col-12">
-                <div>
-                  <img src="artist-image" alt="artist-name-picture" />
-                </div>
-                <span class="bold">Artist name</span>
-                <span class="pl-1">Album year</span>
-                <span class="pl-1">Number of songs </span>
-                <span class="pl-1">Album lenght</span>
-              </div>
-            </div>
-          </div> -->
           <!-- Buttons part -->
           <div class="row justify-content-start" id="main-container-album">
             <div class="col-1 .play-button"></div>
@@ -231,56 +211,54 @@
       .then((unreadableData) => unreadableData.json())
       .then((album) => {
         console.log(album.tracks.data);
-
-        let tracks = album.tracks.data;
-        console.log(tracks.length);
-        tracks.forEach((track) => {
-        console.log(track.title, track.artist.name, track.duration)
-        let newTracks = document.createElement("li");
-        console.log(newTracks)
-        newTracks.className = ("list-group-item d-flex justify-content-between tracklist-album")
-        tracklistContainer.appendChild(newTracks)
-        newTracks.innerHTML += 
-        `<span class="ml-3 mr-2 text-center">${track.number}</span>
-        <div class="flex-grow-1">
-          <text class="fw-bold">${track.title}</text>
-          <text class="d-block fw-light">${track.artist.name}</text>
-          </div>
-          <span class="ml-2 mr-4 text-center">${track.duration}</span>`
-          
-        })
         
-        
-        
-          let albumInfo = document.createElement("div");
+        let albumInfo = document.createElement("div");
         let albumDate = new Date(album.release_date);
         console.log(albumDate.getFullYear());
         albumInfo.className = ("col-4 m-0");
         albumInfoContainer.appendChild(albumInfo);
         albumInfo.innerHTML = `<div class="col-12 m-0">
-      <img
-      id="album-cover-album"
-      src="${album.cover_medium}"
-      alt="${album.name}"
-      />
-      </div>
-      <div class="row col-8 m-0">
-        <span class="col-12 pl-0">ALBUM</span>
-        <h2 class="col-12 pl-0">${album.title}</h2>
-        <div class="row col-12">
-          <div>
-            <img src="${album.artist.picture_small}" alt="${album.title}" />
-            </div>
-            <span class="bold">${album.name}</span>
-            <span class="pl-1">${albumDate.getFullYear()}</span>
-            <span class="pl-1">${album.nb_tracks}</span>
-            <span class="pl-1">${album.duration}</span>
-            </div>
-            </div>
-            </div>`;
-      });
-
-    //       window.onload = () => {
+          <img
+          id="album-cover-album"
+          src="${album.cover_medium}"
+          alt="${album.name}"
+          />
+          </div>
+          <div class="row col-8 m-0">
+            <span class="col-12 pl-0">ALBUM</span>
+            <h2 class="col-12 pl-0">${album.title}</h2>
+            <div class="row col-12">
+              <div>
+                <img src="${album.artist.picture_small}" alt="${album.title}" />
+                </div>
+                <span class="bold">${album.name}</span>
+                <span class="pl-1">${albumDate.getFullYear()}</span>
+                <span class="pl-1">${album.nb_tracks}</span>
+                <span class="pl-1">${album.duration}</span>
+                </div>
+                </div>
+                </div>`;
+              });
+              
+              let tracks = album.tracks.data;
+              console.log(tracks.length);
+              tracks.forEach((track) => {
+              console.log(track.title, track.artist.name, track.duration)
+              let newTracks = document.createElement("li");
+              console.log(newTracks)
+              newTracks.className = ("list-group-item d-flex justify-content-between tracklist-album")
+              tracklistContainer.appendChild(newTracks)
+              newTracks.innerHTML += 
+              // <span class="ml-3 mr-2 text-center">${track.indexOf()}</span>
+              `
+              <div class="flex-grow-1">
+                <text class="fw-bold">${track.title}</text>
+                <text class="d-block fw-light">${track.artist.name}</text>
+                </div>
+                <span class="ml-2 mr-4 text-center">${track.duration}</span>`
+                
+              })
+              //       window.onload = () => {
     //   getInfoAlbum();
     // };
   </script>
