@@ -252,6 +252,10 @@ body {
   object-position: top;
 }
 
+.song:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
 .verified {
   font-size: 0.8rem;
 }

@@ -32,21 +32,23 @@ const getArtist = async (artistID) => {
 
   const songContainer = document.querySelector('.songs-container')
 
-  allTracks.data.forEach((element) => {
-    songContainer.innerHTML += `<div class="song d-flex align-items-center mb-3">
+  allTracks.data.forEach((element, index) => {
+    songContainer.innerHTML += `<div class="song d-flex align-items-center mb-3" onclick="playSong('${
+      element.title
+    }', '${artist.name}', '${element.album.cover_small}', event)">
     <div class="track-number">
-      <i class="fa-solid fa-chart-simple mr-3"></i>
+      ${index + 1}
     </div>
     <div class="album-thumbnail-container">
       <img
-        class="album-thumbnail mr-3"
+        class="album-thumbnail mr-3" 
         src="${element.album.cover_small}"
       />
     </div>
     <div class="song-title">
-      <span>
+      <span class="" ">
         ${element.title}
-      </span>
+      </span></a>
     </div>
     <div class="play-counter">
       <span>${element.rank.toLocaleString('en-US')}</span>
@@ -57,4 +59,26 @@ const getArtist = async (artistID) => {
 
   const artistPickArtist = document.querySelector('.artist-pick-artist')
   artistPickArtist.innerHTML = artist.name
+}
+
+const playSong = (footerSong, footerArtist, albumCover, event) => {
+  //Gets the DOM elements of the footer
+  const songTitleFooter = document.querySelector('.footer-song')
+  const artist = document.querySelector('.footer-artist')
+  const footerCover = document.querySelector('.album-cover-footer')
+
+  //Search the DOM for all elements that are currently 'green' (the one being played), and turn them white again
+  const currentlyPlayed = document.querySelectorAll('.playing')
+
+  for (let i = 0; i < currentlyPlayed.length; i++) {
+    currentlyPlayed[i].classList.remove('playing')
+  }
+
+  //Turns the clicked element green to show that it is currently playing
+  event.target.classList.add('playing')
+
+  // Assigns the values passed in the function to the DOM elements in the footer
+  songTitleFooter.innerHTML = footerSong
+  artist.innerHTML = footerArtist
+  footerCover.setAttribute('src', albumCover)
 }
