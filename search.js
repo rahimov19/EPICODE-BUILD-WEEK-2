@@ -17,7 +17,6 @@ async function getSongs() {
 }
 
 window.onload = async () => {
-  //   const listOfSongsSearch = await fillSearchSongs();
   searchBar.value = "hello";
   const listOfSearch = await getSongs();
   console.log(listOfSearch);
@@ -27,6 +26,7 @@ window.onload = async () => {
     .querySelector("#searchAllButton")
     .addEventListener("click", function () {
       returnToAll();
+      getSongs2;
     });
   document
     .querySelector("#searchAllButton")
@@ -41,6 +41,16 @@ window.onload = async () => {
     .addEventListener("click", function () {
       fillSearchSongs();
     });
+  document
+    .querySelector("#searchArtistsButton")
+    .addEventListener("click", function () {
+      fillSearchArtists();
+    });
+  document
+    .querySelector("#searchAlbumsButton")
+    .addEventListener("click", function () {
+      fillSearchAlbums();
+    });
 };
 
 let leftSideSearch = document.querySelector("#leftSearch");
@@ -50,10 +60,10 @@ let artistsSearch = document.querySelector("#searchArtists");
 let mainRow = document.querySelector("#mainrow");
 
 let clearAll = function () {
-  leftSideSearch.innerHTML = "";
-  rightSideSeacrh.innerHTML = "";
-  albumsSearch.innerHTML = "";
-  artistsSearch.innerHTML = "";
+  document.querySelector("#leftSearch").innerHTML = "";
+  document.querySelector("#rightSearch").innerHTML = "";
+  document.querySelector("#searchAlbums").innerHTML = "";
+  document.querySelector("#searchArtists").innerHTML = "";
 };
 
 let returnToAll = function () {
@@ -88,14 +98,19 @@ let returnToAll = function () {
 };
 
 let fillLeft = function (listOfSearch) {
+  console.log("fillleft");
   clearAll();
 
-  leftSideSearch.innerHTML = `<a href="#" class="aleftInside"><div class=leftInside><img src=${listOfSearch.data[0].album.cover_medium} class="sideImg" alt="">
+  document.querySelector(
+    "#leftSearch"
+  ).innerHTML = `<a href="#" class="aleftInside"><div class=leftInside><img src=${listOfSearch.data[0].album.cover_medium} class="sideImg" alt="">
     <h3>${listOfSearch.data[0].album.title}</h3>
     <p>${listOfSearch.data[0].artist.name}</p></div></a>`;
-  rightSideSeacrh.innerHTML = "";
+  document.querySelector("#rightSearch").innerHTML = "";
   for (i = 0; i < 6; i++) {
-    rightSideSeacrh.innerHTML += `<li><a href="#" class="row col-12 songslist"><img src=${
+    document.querySelector(
+      "#rightSearch"
+    ).innerHTML += `<li><a href="#" class="row col-12 songslist"><img src=${
       listOfSearch.data[i].album.cover_small
     } alt=""> 
     <div class="spanText col-10"><span>${
@@ -110,7 +125,7 @@ let fillLeft = function (listOfSearch) {
     }</span></a></li>`;
   }
   for (i = 0; i < 6; i++) {
-    albumsSearch.innerHTML += `
+    document.querySelector("#searchAlbums").innerHTML += `
     <a class="col-2" href="albums.html?q=${listOfSearch.data[i].album.id}"><div class="col-12"> <div class="searchCard"><img class="cardimg" src=${listOfSearch.data[i].album.cover_medium}>
 <h5>${listOfSearch.data[i].album.title}</h5>
 <p>${listOfSearch.data[i].artist.name}</p>
@@ -119,12 +134,21 @@ let fillLeft = function (listOfSearch) {
   }
 
   for (i = 0; i < 6; i++) {
-    artistsSearch.innerHTML += `
+    document.querySelector("#searchArtists").innerHTML += `
     <a class="col-2" href="artists.html?q=${listOfSearch.data[i].artist.id}"><div class="col-12"> <div class="searchCard"><img class="cardimg" src=${listOfSearch.data[i].artist.picture_medium}>
 <h5>${listOfSearch.data[i].artist.name}</h5>
 <p>Artist</p>
 </div></div> </a>`;
   }
+
+  document.querySelector("#searchSongsButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchAllButton").className =
+    "btn btn-dark searchbuttons active";
+  document.querySelector("#searchArtistsButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchAlbumsButton").className =
+    "btn btn-dark searchbuttons";
 };
 
 const getSongs2 = async (event) => {
@@ -144,7 +168,7 @@ const getSongs2 = async (event) => {
       );
       if (response.ok) {
         const listOfSearch = await response.json();
-        console.log(listOfSearch);
+        console.log("getSongs2");
         // CHANGE CLASSES OF BUTTONS TO IF STATEMENT
         fillLeft(listOfSearch);
       } else {
@@ -185,7 +209,9 @@ const fillSearchSongs = async () => {
     console.error(error);
   }
 };
-let fillSongs = function (listOfSearch) {
+
+let fillSongs2 = function () {
+  console.log("fillsongs2");
   clearAll();
   document.querySelector("#h2Albums").innerHTML = "";
   document.querySelector("#h2Artists").innerHTML = "";
@@ -194,18 +220,23 @@ let fillSongs = function (listOfSearch) {
   ).innerHTML = `<h3 class="mb-3">Search Results:</h3>`;
   document.querySelector("#h3S").innerHTML = "";
 
-  mainRow.innerHTML = `<table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Album</th>
-          <th scope="col">Duration</th>
-        </tr>
-      </thead>
-      
-    <tbody id="tablebody"></tbody>
-    `;
+  document.querySelector("#mainrow").innerHTML = `<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Album</th>
+            <th scope="col">Duration</th>
+          </tr>
+        </thead>
+        
+      <tbody id="tablebody"></tbody>
+      `;
+};
+
+let fillSongs = function (listOfSearch) {
+  console.log("fillsongs");
+  fillSongs2();
   for (i = 0; i < 20; i++) {
     document.querySelector("#tablebody").innerHTML += `
         <tr>
@@ -231,4 +262,140 @@ let fillSongs = function (listOfSearch) {
   }
   mainRow.innerHTML += `
 </table>`;
+  document.querySelector("#searchSongsButton").className =
+    "btn btn-dark searchbuttons active";
+  document.querySelector("#searchAllButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchArtistsButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchAlbumsButton").className =
+    "btn btn-dark searchbuttons";
+};
+
+const fillSearchArtists = async () => {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchBar.value}`,
+      options
+    );
+    if (response.ok) {
+      const listOfSongsSearch = await response.json();
+      console.log(listOfSongsSearch);
+      fillArtists(listOfSongsSearch);
+    } else {
+      console.log("Error while fetching");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+let fillArtists2 = function () {
+  document.querySelector("#searchSongsButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchAllButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchArtistsButton").className =
+    "btn btn-dark searchbuttons active";
+  document.querySelector("#searchAlbumsButton").className =
+    "btn btn-dark searchbuttons";
+
+  console.log("fillArtists2");
+  //   clearAll();
+  document.querySelector("#searchAlbums").innerHTML = "";
+  document.querySelector("#searchArtists").innerHTML = "";
+  document.querySelector("#h2Albums").innerHTML = "";
+  document.querySelector("#h2Artists").innerHTML = "";
+  document.querySelector(
+    "#h3BR"
+  ).innerHTML = `<h3 class="mb-3">Search Results:</h3>`;
+  document.querySelector("#h3S").innerHTML = "";
+
+  document.querySelector(
+    "#mainrow"
+  ).innerHTML = `<div id="artistsbody" class="row col-12 ml-3"></div>`;
+};
+
+let fillArtists = function (listOfSearch) {
+  console.log("fillArtists");
+  fillArtists2();
+  for (i = 0; i < 30; i++) {
+    document.querySelector("#artistsbody").innerHTML += `
+         <div class="searchArtistCard col-2 mb-3" >
+         <img class="artistSearchImg" src=${listOfSearch.data[i].artist.picture_medium}>
+         <h5>${listOfSearch.data[i].artist.name}</h5>
+         <p>Artist</p>
+         `;
+  }
+};
+
+const fillSearchAlbums = async () => {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchBar.value}`,
+      options
+    );
+    if (response.ok) {
+      const listOfSongsSearch = await response.json();
+      console.log(listOfSongsSearch);
+      fillAlbums(listOfSongsSearch);
+    } else {
+      console.log("Error while fetching");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+let fillAlbums2 = function () {
+  document.querySelector("#searchSongsButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchAllButton").className =
+    "btn btn-dark searchbuttons";
+  document.querySelector("#searchArtistsButton").className =
+    "btn btn-dark searchbuttons ";
+  document.querySelector("#searchAlbumsButton").className =
+    "btn btn-dark searchbuttons active";
+
+  console.log("fillAlbums2");
+  //   clearAll();
+  document.querySelector("#searchAlbums").innerHTML = "";
+  document.querySelector("#searchArtists").innerHTML = "";
+  document.querySelector("#h2Albums").innerHTML = "";
+  document.querySelector("#h2Artists").innerHTML = "";
+  document.querySelector(
+    "#h3BR"
+  ).innerHTML = `<h3 class="mb-3">Search Results:</h3>`;
+  document.querySelector("#h3S").innerHTML = "";
+
+  document.querySelector(
+    "#mainrow"
+  ).innerHTML = `<div id="artistsbody" class="row col-12 ml-3"></div>`;
+};
+
+let fillAlbums = function (listOfSearch) {
+  console.log("fillAlbums");
+  fillAlbums2();
+  for (i = 0; i < 30; i++) {
+    document.querySelector("#artistsbody").innerHTML += `
+           <div class="searchArtistCard col-2 mb-3" >
+           <img class="albumsSearchImg" src=${listOfSearch.data[i].album.cover_medium}>
+           <h5>${listOfSearch.data[i].album.title}</h5>
+           <p>${listOfSearch.data[i].artist.name}</p>
+           `;
+  }
 };

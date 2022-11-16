@@ -155,3 +155,34 @@ a {
   vertical-align: middle;
   border: none;
 }
+.artistSearchImg {
+  width: 200px;
+}
+.searchArtistCard {
+  background-color: #1a1a1a;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20em;
+  margin-inline: 0.3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#artistsbody {
+  margin-left: 1em;
+}
+.searchArtistCard h5 {
+  margin-top: 0.7em;
+}
+.albumsSearchImg {
+  width: 13.5em;
+  margin-inline: auto;
+
+  border-radius: 0;
+}
+.artistSearchImg {
+  margin-inline: auto;
+  border-radius: 50%;
+}
