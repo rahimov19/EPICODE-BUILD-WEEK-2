@@ -137,3 +137,21 @@ a {
   padding-inline: 1.2em;
   font-weight: 300;
 }
+.table {
+  color: antiquewhite;
+  margin-inline: 2em;
+}
+.songtitle {
+  display: flex;
+  align-items: center;
+}
+.songtitle .spanText span:nth-child(2) {
+  font-weight: 300;
+}
+.table th,
+.table tr,
+.table td {
+  padding: 0.1em;
+  vertical-align: middle;
+  border: none;
+}
