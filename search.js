@@ -30,7 +30,17 @@ window.onload = async () => {
     });
   document
     .querySelector("#searchAllButton")
-    .addEventListener("click", getSongs2);
+    .addEventListener("click", function () {
+      document.querySelector("#searchSongsButton").className =
+        "btn btn-dark searchbuttons";
+      document.querySelector("#searchAllButton").className =
+        "btn btn-dark searchbuttons active";
+      document.querySelector("#searchArtistsButton").className =
+        "btn btn-dark searchbuttons";
+      document.querySelector("#searchAlbumsButton").className =
+        "btn btn-dark searchbuttons";
+      getSongs2;
+    });
   document
     .querySelector("#searchbar")
     .addEventListener("click", function (event) {
@@ -140,15 +150,6 @@ let fillLeft = function (listOfSearch) {
 <p>Artist</p>
 </div></div> </a>`;
   }
-
-  document.querySelector("#searchSongsButton").className =
-    "btn btn-dark searchbuttons";
-  document.querySelector("#searchAllButton").className =
-    "btn btn-dark searchbuttons active";
-  document.querySelector("#searchArtistsButton").className =
-    "btn btn-dark searchbuttons";
-  document.querySelector("#searchAlbumsButton").className =
-    "btn btn-dark searchbuttons";
 };
 
 const getSongs2 = async (event) => {
@@ -169,8 +170,33 @@ const getSongs2 = async (event) => {
       if (response.ok) {
         const listOfSearch = await response.json();
         console.log("getSongs2");
-        // CHANGE CLASSES OF BUTTONS TO IF STATEMENT
-        fillLeft(listOfSearch);
+        if (
+          document
+            .querySelector("#searchAllButton")
+            .classList.contains("active")
+        ) {
+          fillLeft(listOfSearch);
+        } else if (
+          document
+            .querySelector("#searchSongsButton")
+            .classList.contains("active")
+        ) {
+          fillSearchSongs(listOfSearch);
+        } else if (
+          document
+            .querySelector("#searchAlbumsButton")
+            .classList.contains("active")
+        ) {
+          fillSearchAlbums(listOfSearch);
+        } else if (
+          document
+            .querySelector("#searchArtistsButton")
+            .classList.contains("active")
+        ) {
+          fillSearchArtists(listOfSearch);
+        } else {
+          console.log("something");
+        }
       } else {
         console.log("Error while fetching");
       }
@@ -212,7 +238,7 @@ const fillSearchSongs = async () => {
 
 let fillSongs2 = function () {
   console.log("fillsongs2");
-  clearAll();
+  // clearAll();
   document.querySelector("#h2Albums").innerHTML = "";
   document.querySelector("#h2Artists").innerHTML = "";
   document.querySelector(
