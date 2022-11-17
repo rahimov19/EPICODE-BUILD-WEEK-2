@@ -302,9 +302,9 @@ body {
   );
 }
 
-/* #main-container-album {
-  background-color: rgba(207, 31, 31, 0.9);
-} */
+#main-container-album {
+  background-color: rgba(18, 18, 18, 0.5) !important;
+}
 
 .tracklist-album {
   background-color: transparent;

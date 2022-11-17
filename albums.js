@@ -1,5 +1,8 @@
+const URLparams = new URLSearchParams(window.location.search);
+const albumId = URLparams.get("albumId");
 let albumInfoContainer = document.querySelector("#toppart");
 let tracklistContainer = document.querySelector("#tracklist");
+let baseUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
 
 async function getData() {
   const options = {
@@ -10,10 +13,7 @@ async function getData() {
     },
   };
 
-  const response = await fetch(
-    "https://striveschool-api.herokuapp.com/api/deezer/album/125973652",
-    options
-  );
+  const response = await fetch(baseUrl + albumId, options);
 
   const listOfData = await response.json();
   console.log(listOfData);
