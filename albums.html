@@ -105,6 +105,22 @@
                   <span>Diego 'Ziba' Ba...</span>
                   <i class="fa-solid fa-caret-down"></i>
                 </div>
+              <div
+                class="nav-circle mr-3 d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+              <div
+                class="nav-circle-inactive d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="user-menu d-flex align-items-center">
+                <img class="user-image" src="img/profile-image.jpg" />
+                <span>Diego 'Ziba' Ba...</span>
+                <i class="fa-solid fa-caret-down"></i>
               </div>
             </div>
           </div>
@@ -136,6 +152,75 @@
                 >
                   <span class="ml-3 mr-2 text-center">1</span>
                   <div class="flex-grow-1">
+          <div class="row align-items-end my-4">
+            <div class="col-4" id="albumContainer">
+              <!-- src="6224982" -->
+              <img
+                id="album-cover-album"
+                src="https://cdns-images.dzcdn.net/images/cover/63daf31bbadb935451320dac6423bacf/264x264.jpg"
+              />
+            </div>
+            <div class="row col-8">
+              <span class="col-12 pl-0">ALBUM</span>
+              <h2 class="col-12 pl-0">ALBUM TITLE</h2>
+              <div class="row col-12">
+                <div>
+                  <img src="artist-image" alt="artist-name-picture" />
+                </div>
+                <!-- <text><span class="bold">${}</span>${} ${} ${}</text> -->
+                <span class="bold">Artist name</span>
+                <span class="pl-1">Album year</span>
+                <span class="pl-1">Number of songs </span>
+                <span class="pl-1">Album lenght</span>
+              </div>
+            </div>
+          </div>
+          <!-- Buttons part -->
+          <div class="row justify-content-start" id="main-container-album">
+            <div class="col-1">Play</div>
+            <!-- Heart should turn red when selected -->
+            <div class="col-1">Heart</div>
+            <div class="col-1">. . .</div>
+            <div class="col-12 p-0">
+              <div
+                class="d-flex justify-content-between tracklist-album border-bottom mx-5"
+              >
+                <text
+                  class="ml-3 mr-2 text-center"
+                  style="background-color: green"
+                  >#</text
+                >
+                <text class="flex-grow-1" style="background-color: red"
+                  >TITLE</text
+                >
+                <div
+                  class="ml-2 mr-4 text-center"
+                  style="background-color: green"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-clock"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+                    />
+                    <path
+                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <!-- WIP: Working on the list col/flex-grow -->
+              <!-- <ol class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between tracklist-album"
+                >
+                  <span class="ml-3 mr-2 text-center">1</span>
+                  <div class="flex-grow-1" style="background-color: red">
                     <text class="fw-bold">Song Title</text>
                     <text class="d-block fw-light">artist name</text>
                   </div>
@@ -144,6 +229,11 @@
               </ul>
             </div>
           </div>
+                </li>
+              </ol> -->
+            </div>
+          </div>
+          <div class="row"></div>
         </div>
       </div>
       <div class="row vh-25 footer justify-content-center align-items-center">
@@ -154,6 +244,10 @@
               Another one bites the Dust - Remastered 2011
             </span>
             <span class="footer-artist">Queen</span>
+            <span class="song">
+              Another one bites the Dust - Remastered 2011
+            </span>
+            <span class="artist">Queen</span>
           </div>
           <div class="album-info-icons ml-4">
             <i class="fa-regular fa-heart mr-2"></i>
@@ -265,6 +359,25 @@
     // };
   </script>
   <script src="albums.js"></script>
+    const baseURL = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
+    const container = document.querySelector("#albumContainer");
+
+    console.log(container);
+    const getAlbum = async () => {
+      let unreadableData = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/album/6224982"
+      ); //albumId must be dynamic
+      // If you use {} you are deconstructing it
+      let albums = await unreadableData.json();
+      console.log(albums);
+    };
+
+    // renderAlbums(album);
+
+    window.onload = () => {
+      getAlbum();
+    };
+  </script>
   <!-- <script src="js/color-thief.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
   <script
