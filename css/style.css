@@ -246,8 +246,12 @@ body {
 }
 
 .song:hover {
-  transform: scale(1.03);
+  background-color: #242424;
   cursor: pointer;
+}
+
+.song {
+  transition: 0.3s;
 }
 .verified {
   font-size: 0.8rem;
