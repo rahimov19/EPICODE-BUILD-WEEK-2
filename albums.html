@@ -10,8 +10,10 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/artists.css" />
     <title>Albums</title>
   </head>
   <style></style>
@@ -85,6 +87,24 @@
           <!-- Top part -->
           <div class="row my-3">
             <div class="col-10">
+              <div class="row m-3 justify-content-between top-content-bar">
+                <div class="nav-controls d-flex justify-content-between">
+                  <div
+                    class="nav-circle mr-3 d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+                  <div
+                    class="nav-circle-inactive d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </div>
+                </div>
+                <div class="user-menu d-flex align-items-center">
+                  <img class="user-image" src="img/profile-image.jpg" />
+                  <span>Diego 'Ziba' Ba...</span>
+                  <i class="fa-solid fa-caret-down"></i>
+                </div>
               <div
                 class="nav-circle mr-3 d-flex justify-content-center align-items-center"
               >
@@ -105,6 +125,33 @@
             </div>
           </div>
           <!-- Album part -->
+          <div
+            class="my-4" id="album-info-container">
+            <div class="col-12" id="toppart">
+
+
+            </div>
+          <!-- Buttons part -->
+          <div class="col-12" id="main-container-album">
+           <div class="row"> <div class="col-1 .play-button"></div>
+            <!-- Heart should turn red when selected -->
+            <div class="col-1">Heart</div>
+            <div class="col-1">. . .</div></div>
+            <div class="col-12 p-0">
+              <ul class="list-group" id="tracklist">
+                <li
+                  class="list-group-item row col-12 d-flex justify-content-between tracklist-album p-0"
+                >
+                  <text class="col-1 text-center align-items-center border-bottom">#</text>
+                  <text class=" col-10 border-bottom">TITLE</text>
+                  <i class="col-1 bi bi-clock border-bottom"></i>
+                </span>
+                </li>
+                <!-- <li
+                  class="list-group-item d-flex justify-content-between tracklist-album"
+                >
+                  <span class="ml-3 mr-2 text-center">1</span>
+                  <div class="flex-grow-1">
           <div class="row align-items-end my-4">
             <div class="col-4" id="albumContainer">
               <!-- src="6224982" -->
@@ -178,6 +225,10 @@
                     <text class="d-block fw-light">artist name</text>
                   </div>
                   <span class="ml-2 mr-4 text-center">2:23</span>
+                </li> -->
+              </ul>
+            </div>
+          </div>
                 </li>
               </ol> -->
             </div>
@@ -189,6 +240,10 @@
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
+            <span class="footer-song">
+              Another one bites the Dust - Remastered 2011
+            </span>
+            <span class="footer-artist">Queen</span>
             <span class="song">
               Another one bites the Dust - Remastered 2011
             </span>
@@ -241,6 +296,69 @@
     // colorThief.getColor(albumCover);
     // albumCover.style.backgroundColor = colorThief.getColor(albumCover);
 
+    // const URLparams = new URLSearchParams(window.location.search);
+    // const albumId = URLparams.get("albumId")
+   
+   
+    // fetch("https://striveschool-api.herokuapp.com/api/deezer/album/125973652")
+    
+    //   .then((album) => {
+    //   .then((unreadableData) => unreadableData.json())
+    //     console.log(album.tracks.data);
+    //     let tracks = album.tracks.data;
+
+    //     console.log(tracks.length);
+    //     console.log(track.title, track.artist.name, track.duration)
+    //     tracks.forEach((track) => {
+    //     let newTracks = document.createElement("li");
+    //     console.log(newTracks)
+    //     tracklistContainer.appendChild(newTracks)
+    //     newTracks.className = ("list-group-item d-flex justify-content-between tracklist-album")
+    //     newTracks.innerHTML += 
+    //     `<span class="ml-3 mr-2 text-center">${track.number}</span>
+    //       <text class="fw-bold">${track.title}</text>
+    //     <div class="flex-grow-1">
+    //       <text class="d-block fw-light">${track.artist.name}</text>
+    //       </div>
+    //       <span class="ml-2 mr-4 text-center">${track.duration}</span>`
+    //     })
+          
+        
+        
+        
+    //       let albumInfo = document.createElement("div");
+    //     let albumDate = new Date(album.release_date);
+    //     console.log(albumDate.getFullYear());
+    //     albumInfo.className = ("col-4 m-0");
+    //     albumInfo.innerHTML = `<div class="col-12 m-0">
+    //     albumInfoContainer.appendChild(albumInfo);
+    //   <img
+    //   src="${album.cover_medium}"
+    //   id="album-cover-album"
+    //   alt="${album.name}"
+    //   />
+    //   </div>
+    //   <div class="row col-8 m-0">
+    //     <h2 class="col-12 pl-0">${album.title}</h2>
+    //     <span class="col-12 pl-0">ALBUM</span>
+    //     <div class="row col-12">
+    //       <div>
+    //         </div>
+    //         <span class="bold">${album.name}</span>
+    //         <img src=${album.album.cover_small} alt="${album.title}" />
+    //         <span class="pl-1">${albumDate.getFullYear()}</span>
+    //         <span class="pl-1">${album.nb_tracks}</span>
+    //         </div>
+    //         <span class="pl-1">${album.duration}</span>
+    //         </div>
+    //         </div>`;
+    //   });
+
+    //       window.onload = () => {
+    //   getInfoAlbum();
+    // };
+  </script>
+  <script src="albums.js"></script>
     const baseURL = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
     const container = document.querySelector("#albumContainer");
 
@@ -270,6 +388,10 @@
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/e1177dc7ed.js"
     crossorigin="anonymous"
   ></script>
 </html>

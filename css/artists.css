@@ -1,0 +1,38 @@
+li {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.song {
+  display: flex;
+  flex-direction: column;
+}
+.row > span {
+  margin-block: auto;
+  padding: 1em;
+}
+.song span:nth-child(2) {
+  font-weight: 300;
+  font-size: 0.8em;
+}
+li span:nth-child(3) {
+  margin-left: auto;
+  margin-right: 1em;
+}
+#albumLeft img {
+  width: 15em;
+  margin-inline: auto;
+}
+#albumRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+}
+#albumLeft {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+#main-container-album {
+  background-color: transparent;
+}

@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Spotify</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-
-    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <link href="css/search.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
   </head>
   <body>
     <div class="container-fluid vh-100">
@@ -81,16 +82,73 @@
             <a href="#">Install App</a>
           </div>
         </div>
+        <div id="searchbardiv">
+          <!-- <i class="bi bi-search lupa"> </i> <input type="text" id="searchbar" placeholder="What do you want to Listen"></input> -->
+
+          <button class="btn btn-dark searchbuttons active" id="left">
+            <=
+          </button>
+          <button class="btn btn-dark searchbuttons" id="right">=></button>
+        </div>
+
+        <div class="col-10 main-content">
+          <div class="row" id="undersearch">
+            <h2 class="pl-3 mb-4">Good Morning</h2>
+            <div class="col-12 pl-3 row" id="topsidecards">
+              <div class="sidecards col-2">
+                <img
+                  class="col-4"
+                  src="https://e-cdns-images.dzcdn.net/images/cover/eaeadce7932a97533fe495881d2fcd7a/250x250-000000-80-0-0.jpg"
+                  alt=""
+                />
+                <p class="col-8 sidetext">Some Fancy Text</p>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="row pl-3 mt-3" id="mainrow">
+            <h3>Recently Played</h3>
+            <div class="col-12 pl-3 row" id="firstAlbumRow">
+              <div class="albumCard">
+                <img
+                  class="col-11"
+                  src="https://e-cdns-images.dzcdn.net/images/cover/eaeadce7932a97533fe495881d2fcd7a/250x250-000000-80-0-0.jpg"
+                  alt=""
+                />
+                <div class="albumText">
+                  <p>Some Fancy Text</p>
+                  <p>Some not fancy text</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mt-3">Albums to Try</h3>
+            <div class="col-12 pl-3 row" id="secondAlbumRow">
+              <div class="albumCard">
+                <img
+                  class="col-11"
+                  src="https://e-cdns-images.dzcdn.net/images/cover/eaeadce7932a97533fe495881d2fcd7a/250x250-000000-80-0-0.jpg"
+                  alt=""
+                />
+                <div class="albumText">
+                  <p>Some Fancy Text</p>
+                  <p>Some not fancy text</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         <div class="col-10 main-content"></div>
       </div>
       <div class="row vh-25 footer justify-content-center align-items-center">
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
-            <span class="song">
+            <span class="footer-song">
               Another one bites the Dust - Remastered 2011
             </span>
-            <span class="artist">Queen</span>
+            <span class="footer-artist">Queen</span>
           </div>
           <div class="album-info-icons ml-4">
             <i class="fa-regular fa-heart mr-2"></i>
@@ -129,19 +187,21 @@
         </div>
       </div>
     </div>
+
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script
+src="https://kit.fontawesome.com/e1177dc7ed.js"
+crossorigin="anonymous"
+></script>
   </body>
-  <script
-    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://kit.fontawesome.com/e1177dc7ed.js"
-    crossorigin="anonymous"
-  ></script>
 </html>
