@@ -67,6 +67,9 @@ const playSong = (footerSong, footerArtist, albumCover, event) => {
   const artist = document.querySelector('.footer-artist')
   const footerCover = document.querySelector('.album-cover-footer')
 
+  const footer = document.querySelector('.footer')
+  footer.classList.remove('d-none')
+
   //Search the DOM for all elements that are currently 'green' (the one being played), and turn them white again
   const currentlyPlayed = document.querySelectorAll('.playing')
 
@@ -81,4 +84,12 @@ const playSong = (footerSong, footerArtist, albumCover, event) => {
   songTitleFooter.innerHTML = footerSong
   artist.innerHTML = footerArtist
   footerCover.setAttribute('src', albumCover)
+}
+
+const playerControls = () => {
+  const pause = document.querySelector('.pause-footer')
+  const play = document.querySelector('.play-footer')
+
+  pause.classList.toggle('d-none')
+  play.classList.toggle('d-none')
 }

@@ -155,7 +155,9 @@
           </div>
         </div>
       </div>
-      <div class="row vh-25 footer justify-content-center align-items-center">
+      <div
+        class="row vh-25 footer justify-content-center align-items-center d-none"
+      >
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
@@ -175,10 +177,13 @@
           >
             <i class="fa-solid fa-shuffle"></i>
             <i class="fa-solid fa-backward-step"></i>
-            <div
-              class="circle d-flex justify-content-center align-items-center"
-            >
-              <i class="fa-solid fa-play"></i>
+            <div class="play-pause paused" onclick="playerControls()">
+              <div
+                class="circle d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-play d-none play-footer"></i>
+                <i class="fa-solid fa-pause pause-footer"></i>
+              </div>
             </div>
             <i class="fa-solid fa-forward-step"></i>
             <i class="fa-solid fa-repeat"></i>
