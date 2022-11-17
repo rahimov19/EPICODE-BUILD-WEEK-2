@@ -75,3 +75,12 @@ li span:nth-child(3) {
   width: 30px;
   border-radius: 30px;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
