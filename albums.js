@@ -1,9 +1,9 @@
-// const URLparams = new URLSearchParams(window.location.search);
-// const albumId = URLparams.get("albumId");
+const URLparams = new URLSearchParams(window.location.search);
+const albumID = URLparams.get("albumID");
 let albumInfoContainer = document.querySelector("#toppart");
 let tracklistContainer = document.querySelector("#tracklist");
 const baseUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
-const albumId = 125973652;
+// const albumId = 125973652;
 async function getData() {
   const options = {
     method: "GET",
@@ -13,7 +13,7 @@ async function getData() {
     },
   };
 
-  const response = await fetch(baseUrl + albumId, options);
+  const response = await fetch(baseUrl + albumID, options);
   const album = await response.json();
   console.log(album);
   return album;
@@ -40,7 +40,7 @@ let fillDataAlbum = function (album) {
         <div>
           <img id="artist-small-pic" src=${album.artist.picture_small}>
           <span>${album.artist.name}</span>
-          <span class="pl-1">${albumDate.getFullYear()}</span>
+          <span class="pl-1">${album.release_date}</span>
           <span>${album.nb_tracks} songs</span>
           <span>${
             (album.duration - (album.duration %= 60)) / 60 +
@@ -51,8 +51,7 @@ let fillDataAlbum = function (album) {
        </div>`;
 };
 
-let fillDataSongs = function (album) {
-
+let fillDataSongs = function (listOfData) {
   tracklistContainer.innerHTML = `<li class="row border-bottom align-items-center">
   <span>#</span>
   <div class="song"><span class="my-auto">Title</span></div>

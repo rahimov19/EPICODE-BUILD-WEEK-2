@@ -19,7 +19,7 @@ li span:nth-child(3) {
   margin-right: 1em;
 }
 #albumLeft img {
-  width: 15em;
+  width: 100%;
   margin-inline: auto;
 }
 #albumRight {
@@ -35,4 +35,43 @@ li span:nth-child(3) {
 }
 #main-container-album {
   background-color: transparent;
+}
+
+#album-cover-album {
+  -webkit-box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
+  box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.66);
+  object-fit: cover;
+}
+
+#background-container-album {
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 50%,
+    rgb(230, 209, 24) 100%
+  );
+  padding: 0;
+}
+
+#main-container-album {
+  background-color: rgba(18, 18, 18, 0.5) !important;
+}
+
+.tracklist-album {
+  background-color: transparent;
+}
+
+/* #tracklist-table-album {
+   z-index: 1; 
+   opacity: 1; 
+}  */
+
+/* #play-icon {
+  color: #1fdf64;
+  background-color: white;
+  border-radius: 30px;
+} */
+
+#artist-small-pic {
+  width: 30px;
+  border-radius: 30px;
 }
