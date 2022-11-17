@@ -4,7 +4,6 @@
 body {
   color: white;
   font-family: 'Signika', sans-serif;
-  margin-bottom: 10em;
 }
 
 .content {
@@ -19,12 +18,14 @@ body {
 .main-content {
   position: relative;
   background-color: black;
+  height: 100vh;
 }
 
 .footer {
   background: #181818;
   height: 10vh;
   width: 100%;
+  margin-top: 10em;
 }
 
 .logo {
@@ -242,7 +243,6 @@ body {
   z-index: 0;
   opacity: 50%;
   object-fit: cover;
-  object-position: top;
 }
 
 .song:hover {
