@@ -1,9 +1,9 @@
-const URLparams = new URLSearchParams(window.location.search);
-const albumId = URLparams.get("albumId");
+// const URLparams = new URLSearchParams(window.location.search);
+// const albumId = URLparams.get("albumId");
 let albumInfoContainer = document.querySelector("#toppart");
 let tracklistContainer = document.querySelector("#tracklist");
-let baseUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
-
+const baseUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/`;
+const albumId = 125973652;
 async function getData() {
   const options = {
     method: "GET",
@@ -14,42 +14,45 @@ async function getData() {
   };
 
   const response = await fetch(baseUrl + albumId, options);
-
-  const listOfData = await response.json();
-  console.log(listOfData);
-  return listOfData;
+  const album = await response.json();
+  console.log(album);
+  return album;
 }
 window.onload = async () => {
-  const listOfData = await getData();
-  fillDataAlbum(listOfData);
-  fillDataSongs(listOfData);
+  const album = await getData();
+  fillDataAlbum(album);
+  fillDataSongs(album);
+  let albumDate = new Date(album.release_date);
+  console.log(albumDate.getFullYear());
 };
 
-let fillDataAlbum = function (listOfData) {
+let fillDataAlbum = function (album) {
   albumInfoContainer.innerHTML = "";
   albumInfoContainer.innerHTML = `
   <div class="row">
     <div class="col-2" id="albumLeft"><img id="album-cover-album" src=${
-      listOfData.cover_xl
+      album.cover_xl
     }></div>
     <div class="col-10" id="albumRight">
       <div class="album-text">
         <p class="album-small-text">ALBUM</p>
-        <h2 class="album-name">${listOfData.title}</h2>
+        <h2 class="album-name">${album.title}</h2>
         <div>
-          <img id="artist-small-pic" src=${listOfData.artist.picture_small}>
-          <span>ARTIST NAME</span>
-          <span>${listOfData.tracks.data.length} songs</span>
+          <img id="artist-small-pic" src=${album.artist.picture_small}>
+          <span>${album.artist.name}</span>
+          <span class="pl-1">${albumDate.getFullYear()}</span>
+          <span>${album.nb_tracks} songs</span>
           <span>${
-            (listOfData.duration - (listOfData.duration %= 60)) / 60 +
-            (9 < listOfData.duration ? ":" : ":0") +
-            listOfData.duration
+            (album.duration - (album.duration %= 60)) / 60 +
+            (9 < album.duration ? ":" : ":0") +
+            album.duration
           } 
         </div>
        </div>`;
 };
 
-let fillDataSongs = function (listOfData) {
+let fillDataSongs = function (album) {
+
   tracklistContainer.innerHTML = `<li class="row border-bottom align-items-center">
   <span>#</span>
   <div class="song"><span class="my-auto">Title</span></div>

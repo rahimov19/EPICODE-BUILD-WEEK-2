@@ -23,11 +23,11 @@
           <div class="links-container d-flex flex-column mt-3 ml-0">
             <div class="link d-flex p-2 pl-0 mt-1">
               <i class="fa-solid fa-house mt-1"></i>
-              <a href="#" class="ml-4">Home</a>
+              <a href="index.html" class="ml-4">Home</a>
             </div>
             <div class="link d-flex p-2 mt-1">
               <i class="fa-solid fa-magnifying-glass mt-1"></i>
-              <a href="#" class="ml-4">Search</a>
+              <a href="search.html" class="ml-4">Search</a>
             </div>
             <div class="link d-flex p-2 mt-1">
               <i class="fa-solid fa-book mt-1"></i>
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="row">
-            <img class="banner" src="img/queen-banner.jpg" />
+            <img class="banner" />
           </div>
           <div class="row flex-column">
             <div
@@ -114,22 +114,43 @@
                 <span class="verified">Verified Artist</span>
               </div>
 
-              <span class="artist">Queen</span>
-              <span class="listeners">37,120,733 monthly Listeners</span>
+              <span class="artist"></span>
+              <span class="listeners">
+                <span>Monthly listeners</span>
+              </span>
             </div>
             <div class="artist-container mt-3">
-              <div class="row w-25 mt-3 ml-3">
+              <div class="row w-25 mt-3 ml-3 d-flex align-items-center">
                 <div
                   class="green-circle d-flex justify-content-center align-items-center"
                 >
                   <i class="fa-solid fa-pause"></i>
                 </div>
-                <div class="follow ml-3 mt-1">
+                <div class="follow ml-4 mt-1">
                   <button type="button" class="btn btn-sm btn-outline-light">
                     Follow
                   </button>
                 </div>
-                <div class="more-info"></div>
+                <div class="more-info ml-4 mt-2">
+                  <i class="fa-solid fa-ellipsis"></i>
+                </div>
+              </div>
+              <div class="headings d-flex justify-content-between mt-4">
+                <span class="ml-3">Popular</span>
+                <span>Artist Pick</span>
+              </div>
+              <div class="content h-100 d-flex">
+                <div class="songs-container mt-3 ml-4 d-flex flex-column"></div>
+
+                <!-- Songs are generated here-->
+
+                <div class="artist-pick h-25 d-flex">
+                  <img class="artist-pick-album-cover" />
+                  <div class="artist-pick-info d-flex flex-column ml-3 mt-1">
+                    <span class="artist-pick-artist"></span>
+                    <span class="pick-category">Playlist</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -139,10 +160,10 @@
         <div class="col-4 footer-left d-flex align-items-center">
           <img class="album-cover-footer" src="img/album-cover.jpg" />
           <div class="album-info d-flex flex-column ml-2">
-            <span class="song">
+            <span class="footer-song">
               Another one bites the Dust - Remastered 2011
             </span>
-            <span class="artist">Queen</span>
+            <span class="footer-artist">Queen</span>
           </div>
           <div class="album-info-icons ml-4">
             <i class="fa-regular fa-heart mr-2"></i>
@@ -196,4 +217,5 @@
     src="https://kit.fontawesome.com/e1177dc7ed.js"
     crossorigin="anonymous"
   ></script>
+  <script src="js/artists.js"></script>
 </html>
