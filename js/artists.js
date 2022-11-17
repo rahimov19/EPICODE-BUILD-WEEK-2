@@ -1,3 +1,7 @@
+const audio = document.querySelector('#audio')
+const pause = document.querySelector('.pause-footer')
+const play = document.querySelector('.play-footer')
+
 window.onload = () => {
   getArtist(getID())
 }
@@ -35,7 +39,9 @@ const getArtist = async (artistID) => {
   allTracks.data.forEach((element, index) => {
     songContainer.innerHTML += `<div class="song d-flex align-items-center mb-3" onclick="playSong('${
       element.title
-    }', '${artist.name}', '${element.album.cover_small}', event)">
+    }', '${artist.name}', '${element.album.cover_small}', '${
+      element.preview
+    }', event)">
     <div class="track-number">
       ${index + 1}
     </div>
@@ -61,7 +67,7 @@ const getArtist = async (artistID) => {
   artistPickArtist.innerHTML = artist.name
 }
 
-const playSong = (footerSong, footerArtist, albumCover, event) => {
+const playSong = (footerSong, footerArtist, albumCover, songPreview, event) => {
   //Gets the DOM elements of the footer
   const songTitleFooter = document.querySelector('.footer-song')
   const artist = document.querySelector('.footer-artist')
@@ -84,12 +90,18 @@ const playSong = (footerSong, footerArtist, albumCover, event) => {
   songTitleFooter.innerHTML = footerSong
   artist.innerHTML = footerArtist
   footerCover.setAttribute('src', albumCover)
+
+  audio.src = songPreview
+  audio.play()
 }
 
+pause.addEventListener('click', function () {
+  audio.pause()
+})
+play.addEventListener('click', function () {
+  audio.play()
+})
 const playerControls = () => {
-  const pause = document.querySelector('.pause-footer')
-  const play = document.querySelector('.play-footer')
-
   pause.classList.toggle('d-none')
   play.classList.toggle('d-none')
 }
