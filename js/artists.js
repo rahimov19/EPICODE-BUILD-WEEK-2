@@ -40,10 +40,10 @@ const getArtist = async (artistID) => {
       ${index + 1}
     </div>
     <div class="album-thumbnail-container">
-      <img
+      <a href="albums.html?albumID=${element.album.id}"><img
         class="album-thumbnail mr-3" 
         src="${element.album.cover_small}"
-      />
+      /></a>
     </div>
     <div class="song-title">
       <span class="" ">
