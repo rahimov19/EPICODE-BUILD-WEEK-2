@@ -1,77 +1,77 @@
 async function getAlbums() {
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      'X-RapidAPI-Key': '0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419',
+      'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com',
     },
-  };
+  }
   const response = await fetch(
     `https://striveschool-api.herokuapp.com/api/deezer/search?q=hello`,
-    options
-  );
+    options,
+  )
 
-  const listOfSearch = await response.json();
-  return listOfSearch;
+  const listOfSearch = await response.json()
+  return listOfSearch
 }
 
 async function getSongs() {
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      'X-RapidAPI-Key': '0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419',
+      'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com',
     },
-  };
+  }
   const response = await fetch(
     `https://striveschool-api.herokuapp.com/api/deezer/search?q=skillet`,
-    options
-  );
+    options,
+  )
 
-  const listOfSongs = await response.json();
-  return listOfSongs;
+  const listOfSongs = await response.json()
+  return listOfSongs
 }
 
 async function getArtist() {
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      'X-RapidAPI-Key': '0804dffc02mshffe59d44538faefp143e0bjsne323b0c03419',
+      'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com',
     },
-  };
+  }
   const response = await fetch(
     `https://striveschool-api.herokuapp.com/api/deezer/search?q=song`,
-    options
-  );
+    options,
+  )
 
-  const listOfArtists = await response.json();
-  return listOfArtists;
+  const listOfArtists = await response.json()
+  return listOfArtists
 }
 
 window.onload = async () => {
-  const listOfSearch = await getAlbums();
-  const listOfSongs = await getSongs();
-  const listOfArtists = await getArtist();
-  console.log(listOfArtists);
-  console.log(listOfSearch);
-  console.log(listOfSongs);
-  fillPageAlbums(listOfSearch);
-  fillPageSongs(listOfSongs);
-  fillPageArtists(listOfArtists);
-  getParsedArray();
-  fillPlaylist();
-  getUser();
-};
+  const listOfSearch = await getAlbums()
+  const listOfSongs = await getSongs()
+  const listOfArtists = await getArtist()
+  console.log(listOfArtists)
+  console.log(listOfSearch)
+  console.log(listOfSongs)
+  fillPageAlbums(listOfSearch)
+  fillPageSongs(listOfSongs)
+  fillPageArtists(listOfArtists)
+  getParsedArray()
+  fillPlaylist()
+  getUser()
+}
 // window.onload = () => {
 
 // };
-let topsidecards = document.querySelector("#topsidecards");
-let firstRow = document.querySelector("#firstAlbumRow");
-let secondRow = document.querySelector("#secondAlbumRow");
+let topsidecards = document.querySelector('#topsidecards')
+let firstRow = document.querySelector('#firstAlbumRow')
+let secondRow = document.querySelector('#secondAlbumRow')
 
 const fillPageAlbums = function (listOfSearch) {
-  topsidecards.innerHTML = "";
+  topsidecards.innerHTML = ''
   for (i = 0; i < 10; i++) {
     topsidecards.innerHTML += `<a href="albums.html?albumID=${listOfSearch.data[i].album.id}"<div class="sidecards col-2">
 <img
@@ -80,12 +80,12 @@ const fillPageAlbums = function (listOfSearch) {
   alt=""
 />
 <p class="col-8 sidetext">${listOfSearch.data[i].album.title}</p>
-</div></a>`;
+</div></a>`
   }
-};
+}
 
 const fillPageSongs = function (listOfSongs) {
-  firstRow.innerHTML = "";
+  firstRow.innerHTML = ''
   for (i = 0; i < 8; i++) {
     firstRow.innerHTML += `<a href="artists.html?artistID=${listOfSongs.data[i].artist.id}"<div class="albumCard">
         <img
@@ -97,12 +97,12 @@ const fillPageSongs = function (listOfSongs) {
           <p>${listOfSongs.data[i].artist.name}</p>
           <p>${listOfSongs.data[i].title}</p>
         </div>
-      </div></a>`;
+      </div></a>`
   }
-};
+}
 
 const fillPageArtists = function (listOfArtists) {
-  secondRow.innerHTML = "";
+  secondRow.innerHTML = ''
   for (i = 0; i < 8; i++) {
     secondRow.innerHTML += `<a href="albums.html?albumID=${listOfArtists.data[i].album.id}"<div class="albumCard">
           <img
@@ -110,96 +110,96 @@ const fillPageArtists = function (listOfArtists) {
             src="${listOfArtists.data[i].artist.picture}"
             alt=""
           />
-          <div class="albumText">
+          <div class="albumText pb-4">
             <p>${listOfArtists.data[i].artist.name}</p>
             </div>
-        </div></a>`;
+        </div></a>`
   }
-};
+}
 
-const audio = document.querySelector("#audio");
-const pause = document.querySelector(".pause-footer");
-const play = document.querySelector(".play-footer");
+const audio = document.querySelector('#audio')
+const pause = document.querySelector('.pause-footer')
+const play = document.querySelector('.play-footer')
 
-let playlistArray = [];
+let playlistArray = []
 let getParsedArray = function () {
-  const arrayStr = localStorage.getItem("array");
-  const parsedPlaylistArray = JSON.parse(arrayStr);
+  const arrayStr = localStorage.getItem('array')
+  const parsedPlaylistArray = JSON.parse(arrayStr)
   // let aaa = playlistArray.concat(parsedPlaylistArray);
   // console.log(aaa);
-  playlistArray = parsedPlaylistArray;
-};
+  playlistArray = parsedPlaylistArray
+}
 
-let playlist = document.querySelector(".playlists");
+let playlist = document.querySelector('.playlists')
 // let playlistArray = parsedPlaylistArray;
 fillPlaylist = function () {
-  playlist.innerHTML = "";
+  playlist.innerHTML = ''
   for (i = 0; i < playlistArray.length; i++) {
-    playlist.innerHTML += `<div class="songInPlaylist" onclick="playFromPlaylist(event)"><span>${playlistArray[i].Artistname}</span> - <span class="songName">${playlistArray[i].Songname}</span></div>`;
+    playlist.innerHTML += `<div class="songInPlaylist" onclick="playFromPlaylist(event)"><span>${playlistArray[i].Artistname}</span> - <span class="songName">${playlistArray[i].Songname}</span></div>`
   }
-};
+}
 
-let index = 0;
+let index = 0
 const playFromPlaylist = function (event) {
   let foundIndex = playlistArray.findIndex(function (song, index2) {
     if (
-      song.Songname == event.currentTarget.querySelector(".songName").innerText
+      song.Songname == event.currentTarget.querySelector('.songName').innerText
     ) {
-      index = index2;
+      index = index2
     }
-  });
+  })
 
-  console.log(index);
-  playSongHeart();
-};
+  console.log(index)
+  playSongHeart()
+}
 
 const playSongHeart = function () {
-  let songInPlaylist = document.querySelectorAll(".songInPlaylist");
+  let songInPlaylist = document.querySelectorAll('.songInPlaylist')
   for (i = 0; i < songInPlaylist.length; i++) {
-    songInPlaylist[i].className = "songInPlaylist";
+    songInPlaylist[i].className = 'songInPlaylist'
   }
-  const songTitleFooter = document.querySelector(".footer-song");
-  const artist = document.querySelector(".footer-artist");
-  const footerCover = document.querySelector(".album-cover-footer");
-  const footer = document.querySelector(".footer");
-  footer.classList.remove("d-none");
-  songTitleFooter.innerHTML = playlistArray[index].Songname;
-  artist.innerHTML = playlistArray[index].Artistname;
-  footerCover.setAttribute("src", playlistArray[index].image);
-  audio.src = playlistArray[index].previewurl;
-  audio.play();
-  songInPlaylist[index].className = "playing songInPlaylist";
-};
+  const songTitleFooter = document.querySelector('.footer-song')
+  const artist = document.querySelector('.footer-artist')
+  const footerCover = document.querySelector('.album-cover-footer')
+  const footer = document.querySelector('.footer')
+  footer.classList.remove('d-none')
+  songTitleFooter.innerHTML = playlistArray[index].Songname
+  artist.innerHTML = playlistArray[index].Artistname
+  footerCover.setAttribute('src', playlistArray[index].image)
+  audio.src = playlistArray[index].previewurl
+  audio.play()
+  songInPlaylist[index].className = 'playing songInPlaylist'
+}
 
-const previousSongButton = document.querySelector(".fa-backward-step");
-previousSongButton.addEventListener("click", function () {
-  index--;
+const previousSongButton = document.querySelector('.fa-backward-step')
+previousSongButton.addEventListener('click', function () {
+  index--
   if (index < 0) {
-    index = playlistArray.length;
+    index = playlistArray.length
   }
-  playSongHeart();
-});
-const nextSongButton = document.querySelector(".fa-forward-step");
-nextSongButton.addEventListener("click", function () {
-  index++;
+  playSongHeart()
+})
+const nextSongButton = document.querySelector('.fa-forward-step')
+nextSongButton.addEventListener('click', function () {
+  index++
   if (index > playlistArray.length) {
-    index = 0;
+    index = 0
   }
-  playSongHeart();
-});
+  playSongHeart()
+})
 
-pause.addEventListener("click", function () {
-  audio.pause();
-});
-play.addEventListener("click", function () {
-  audio.play();
-});
+pause.addEventListener('click', function () {
+  audio.pause()
+})
+play.addEventListener('click', function () {
+  audio.play()
+})
 const playerControls = () => {
-  pause.classList.toggle("d-none");
-  play.classList.toggle("d-none");
-};
-let username = document.querySelector("#username");
+  pause.classList.toggle('d-none')
+  play.classList.toggle('d-none')
+}
+let username = document.querySelector('#username')
 let getUser = function () {
-  let login = localStorage.getItem("login");
-  username.innerText = login;
-};
+  let login = localStorage.getItem('login')
+  username.innerText = login
+}
