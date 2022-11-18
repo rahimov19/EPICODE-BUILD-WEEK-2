@@ -175,7 +175,9 @@ body {
 }
 
 .top-content-bar {
-  position: relative;
+  position: absolute;
+  left: 17%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   z-index: 1;
@@ -385,4 +387,19 @@ body {
 }
 .iconheartselected {
   color: #1fdf64;
+}
+
+.lupa {
+  font-size: 1.5em;
+  text-align: center;
+  padding-right: 0.3em;
+  transform: translateX(1.8em);
+  color: black;
+}
+#searchbar {
+  /* margin-top: 2em; */
+  border-radius: 20px;
+  height: 2.5em;
+  padding-left: 2.6em;
+  width: 20em;
 }

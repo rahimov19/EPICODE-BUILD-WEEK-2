@@ -48,6 +48,7 @@
         type="text"
         class="mt-3 email"
         placeholder="Email address or username"
+        id="login"
       />
       <input type="password" class="mt-2 password" placeholder="Password" />
       <div
@@ -60,7 +61,7 @@
           </label>
         </div>
         <a href="index.html" class="link">
-        <button type="button" class="submit btn btn-primary py-0">
+        <button type="button" onclick="saveUser()" class="submit btn btn-primary py-0">
           Log in
         </button>
       </div>
@@ -90,4 +91,15 @@
     src="https://kit.fontawesome.com/e1177dc7ed.js"
     crossorigin="anonymous"
   ></script>
+
+  <script>
+let loginInput = document.querySelector("#login")
+
+let saveUser = function () {
+localStorage.setItem("login", loginInput.value)
+
+}
+
+
+  </script>
 </html>

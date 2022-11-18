@@ -66,6 +66,7 @@ window.onload = async () => {
 
   getParsedArray();
   fillPlaylist();
+  getUser();
 };
 
 let leftSideSearch = document.querySelector("#leftSearch");
@@ -500,4 +501,10 @@ play.addEventListener("click", function () {
 const playerControls = () => {
   pause.classList.toggle("d-none");
   play.classList.toggle("d-none");
+};
+
+let username = document.querySelector("#username");
+let getUser = function () {
+  let login = localStorage.getItem("login");
+  username.innerText = login;
 };

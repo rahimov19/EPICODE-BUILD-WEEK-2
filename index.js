@@ -61,6 +61,7 @@ window.onload = async () => {
   fillPageArtists(listOfArtists);
   getParsedArray();
   fillPlaylist();
+  getUser();
 };
 // window.onload = () => {
 
@@ -196,4 +197,9 @@ play.addEventListener("click", function () {
 const playerControls = () => {
   pause.classList.toggle("d-none");
   play.classList.toggle("d-none");
+};
+let username = document.querySelector("#username");
+let getUser = function () {
+  let login = localStorage.getItem("login");
+  username.innerText = login;
 };

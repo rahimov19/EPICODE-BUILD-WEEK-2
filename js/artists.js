@@ -6,6 +6,7 @@ window.onload = () => {
   getArtist(getID());
   getParsedArray();
   fillPlaylist();
+  getUser();
 };
 
 const getID = () => {
@@ -204,4 +205,9 @@ fillPlaylist = function () {
   for (i = 0; i < playlistArray.length; i++) {
     playlist.innerHTML += `<div class="songInPlaylist" onclick="playFromPlaylist(event)"><span>${playlistArray[i].Artistname}</span> - <span class="songName">${playlistArray[i].Songname}</span></div>`;
   }
+};
+let username = document.querySelector("#username");
+let getUser = function () {
+  let login = localStorage.getItem("login");
+  username.innerText = login;
 };

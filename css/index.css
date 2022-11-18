@@ -59,3 +59,11 @@ img.col-11 {
 a:hover {
   color: aliceblue;
 }
+.top-content-bar {
+  position: absolute;
+  left: 17% !important;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}

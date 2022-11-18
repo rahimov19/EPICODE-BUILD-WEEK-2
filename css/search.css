@@ -224,3 +224,12 @@ th {
 .play-pause:hover {
   cursor: pointer;
 }
+.user-menu {
+  margin-left: auto;
+  margin-right: 18%;
+  width: 10%;
+  height: 100%;
+}
+#username {
+  margin-left: 1em;
+}

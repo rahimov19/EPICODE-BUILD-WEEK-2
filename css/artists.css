@@ -112,3 +112,10 @@ a:hover {
 .row {
   margin: 0;
 }
+.top-content-bar {
+  left: 4%;
+  width: 110%;
+}
+#album-info-container {
+  margin-top: 5em;
+}

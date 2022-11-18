@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/reset.css" />
   </head>
   <body>
-    <div class="container-fluid vh-100">
+    <div class="container-fluid vh-100 px-0">
       <div class="row content">
         <div class="col-2 sidebar pl-3">
           <a href="index.html"><img class="logo mt-2" src="img/logo.png" /></a>
@@ -83,15 +83,27 @@
             <a href="#">Install App</a>
           </div>
         </div>
-        <div id="searchbardiv">
-          <!-- <i class="bi bi-search lupa"> </i> <input type="text" id="searchbar" placeholder="What do you want to Listen"></input> -->
+        <div class="row m-3 justify-content-between top-content-bar">
+          <div class="nav-controls d-flex justify-content-between align-items-center">
+            <div
+              class="nav-circle mr-3 d-flex justify-content-center align-items-center"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div
+              class="nav-circle-inactive d-flex justify-content-center align-items-center"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+      <i class="bi bi-search lupa"> </i> <a href="search.html"> <input type="text" id="searchbar" placeholder="What do you want to Listen"></input></a>
 
-          <button class="btn btn-dark searchbuttons active" id="left">
-            <=
-          </button>
-          <button class="btn btn-dark searchbuttons" id="right">=></button>
+          </div>
+          <div class="user-menu d-flex align-items-center">
+            <img class="user-image" src="img/profile-image.jpg" />
+            <span id="username">Diego 'Ziba' Ba...</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
         </div>
-
         <div class="col-10 main-content">
           <div class="row" id="undersearch">
             <h2 class="pl-3 mb-4">Good Morning</h2>

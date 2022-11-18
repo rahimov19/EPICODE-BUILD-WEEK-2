@@ -26,6 +26,7 @@ window.onload = async () => {
   console.log(albumDate.getFullYear());
   getParsedArray();
   fillPlaylist();
+  getUser();
 };
 
 let fillDataAlbum = function (album) {
@@ -217,4 +218,10 @@ fillPlaylist = function () {
   for (i = 0; i < playlistArray.length; i++) {
     playlist.innerHTML += `<div class="songInPlaylist" onclick="playFromPlaylist(event)"><span>${playlistArray[i].Artistname}</span> - <span class="songName">${playlistArray[i].Songname}</span></div>`;
   }
+};
+
+let username = document.querySelector("#username");
+let getUser = function () {
+  let login = localStorage.getItem("login");
+  username.innerText = login;
 };
