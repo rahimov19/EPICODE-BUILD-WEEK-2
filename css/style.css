@@ -198,7 +198,8 @@ body {
 
 .user-menu {
   width: 10%;
-  height: 5vh;
+  padding-left: 0.3em;
+  /* height: 5vh; */
   background-color: #000000;
   border-radius: 20px;
 }
