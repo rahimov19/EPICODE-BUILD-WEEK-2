@@ -20,7 +20,8 @@
     <div class="container-fluid vh-100">
       <div class="row content">
         <div class="col-2 sidebar pl-3">
-          <img class="logo mt-2" src="img/logo.png" />
+          <a href="index.html"><img class="logo mt-2" src="img/logo.png" /></a>
+
           <div class="links-container d-flex flex-column mt-3 ml-0">
             <div class="link d-flex p-2 pl-0 mt-1">
               <i class="fa-solid fa-house mt-1"></i>
@@ -161,10 +162,13 @@
           >
             <i class="fa-solid fa-shuffle"></i>
             <i class="fa-solid fa-backward-step"></i>
-            <div
-              class="circle d-flex justify-content-center align-items-center"
-            >
-              <i class="fa-solid fa-play"></i>
+            <div class="play-pause paused" onclick="playerControls()">
+              <div
+                class="circle d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-play d-none play-footer"></i>
+                <i class="fa-solid fa-pause pause-footer"></i>
+              </div>
             </div>
             <i class="fa-solid fa-forward-step"></i>
             <i class="fa-solid fa-repeat"></i>
@@ -187,7 +191,8 @@
         </div>
       </div>
     </div>
-
+    <audio src="" id="audio"></audio>
+  </body>
     <script src="index.js"></script>
     <script src="js/artists.js"></script>
     <script
@@ -204,5 +209,5 @@
 src="https://kit.fontawesome.com/e1177dc7ed.js"
 crossorigin="anonymous"
 ></script>
-  </body>
+ 
 </html>

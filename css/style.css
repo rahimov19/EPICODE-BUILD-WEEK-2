@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css');
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
 
 body {
   color: white;
-  font-family: 'Signika', sans-serif;
+  font-family: "Signika", sans-serif;
   overflow-x: hidden;
   background-color: #000000;
 }
@@ -355,6 +355,10 @@ body {
   font-size: 0.8rem;
 }
 
+.song-length::before {
+  content: attr(heart);
+}
+
 .artist-pick-album-cover {
   width: 50px;
   height: 50px;
@@ -366,4 +370,19 @@ body {
 
 .play-pause:hover {
   cursor: pointer;
+}
+.artist {
+  mix-blend-mode: difference;
+  text-shadow: 5px 5px 2px #2900002a;
+}
+.iconheart {
+  opacity: 0;
+  margin-right: 1em;
+  z-index: 2;
+}
+.song:hover .iconheart {
+  opacity: 1;
+}
+.iconheartselected {
+  color: #1fdf64;
 }

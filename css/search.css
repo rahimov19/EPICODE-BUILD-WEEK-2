@@ -220,3 +220,7 @@ th {
 .searchArtistCard a {
   width: 100%;
 }
+
+.play-pause:hover {
+  cursor: pointer;
+}
