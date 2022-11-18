@@ -1,40 +1,40 @@
-const audio = document.querySelector("#audio");
-const pause = document.querySelector(".pause-footer");
-const play = document.querySelector(".play-footer");
+const audio = document.querySelector('#audio')
+const pause = document.querySelector('.pause-footer')
+const play = document.querySelector('.play-footer')
 
 window.onload = () => {
-  getArtist(getID());
-};
+  getArtist(getID())
+}
 
 const getID = () => {
-  const getID = new URLSearchParams(window.location.search).get("artistID");
-  return getID;
-};
+  const getID = new URLSearchParams(window.location.search).get('artistID')
+  return getID
+}
 
 const getArtist = async (artistID) => {
   const response = await fetch(
-    "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistID
-  );
+    'https://striveschool-api.herokuapp.com/api/deezer/artist/' + artistID,
+  )
 
-  const artist = await response.json();
+  const artist = await response.json()
 
-  const getTracks = await fetch(artist.tracklist);
-  const allTracks = await getTracks.json();
+  const getTracks = await fetch(artist.tracklist)
+  const allTracks = await getTracks.json()
 
-  const artistName = document.querySelector(".artist");
-  artistName.innerHTML = artist.name;
+  const artistName = document.querySelector('.artist')
+  artistName.innerHTML = artist.name
 
-  const bannerImage = document.querySelector(".banner");
-  bannerImage.setAttribute("src", artist.picture_xl);
+  const bannerImage = document.querySelector('.banner')
+  bannerImage.setAttribute('src', artist.picture_xl)
 
-  const listeners = document.querySelector(".listeners");
+  const listeners = document.querySelector('.listeners')
   listeners.innerHTML =
-    artist.nb_fan.toLocaleString("en-US") + " monthly listeners";
+    artist.nb_fan.toLocaleString('en-US') + ' monthly listeners'
 
-  const artistPicture = document.querySelector(".artist-pick-album-cover");
-  artistPicture.setAttribute("src", artist.picture_xl);
+  const artistPicture = document.querySelector('.artist-pick-album-cover')
+  artistPicture.setAttribute('src', artist.picture_xl)
 
-  const songContainer = document.querySelector(".songs-container");
+  const songContainer = document.querySelector('.songs-container')
 
   allTracks.data.forEach((element, index) => {
     songContainer.innerHTML += `<div class="song d-flex align-items-center mb-3" onclick="playSong('${
@@ -57,51 +57,51 @@ const getArtist = async (artistID) => {
       </span></a>
     </div>
     <div class="play-counter">
-      <span>${element.rank.toLocaleString("en-US")}</span>
+      <span>${element.rank.toLocaleString('en-US')}</span>
     </div>
     <span class="song-length mr-3">${element.duration}</span>
-  </div>`;
-  });
+  </div>`
+  })
 
-  const artistPickArtist = document.querySelector(".artist-pick-artist");
-  artistPickArtist.innerHTML = artist.name;
-};
+  const artistPickArtist = document.querySelector('.artist-pick-artist')
+  artistPickArtist.innerHTML = artist.name
+}
 
 const playSong = (footerSong, footerArtist, albumCover, songPreview, event) => {
   //Gets the DOM elements of the footer
-  const songTitleFooter = document.querySelector(".footer-song");
-  const artist = document.querySelector(".footer-artist");
-  const footerCover = document.querySelector(".album-cover-footer");
+  const songTitleFooter = document.querySelector('.footer-song')
+  const artist = document.querySelector('.footer-artist')
+  const footerCover = document.querySelector('.album-cover-footer')
 
-  const footer = document.querySelector(".footer");
-  footer.classList.remove("d-none");
+  const footer = document.querySelector('.footer')
+  footer.classList.remove('d-none')
 
   //Search the DOM for all elements that are currently 'green' (the one being played), and turn them white again
-  const currentlyPlayed = document.querySelectorAll(".playing");
+  const currentlyPlayed = document.querySelectorAll('.playing')
 
   for (let i = 0; i < currentlyPlayed.length; i++) {
-    currentlyPlayed[i].classList.remove("playing");
+    currentlyPlayed[i].classList.remove('playing')
   }
 
   //Turns the clicked element green to show that it is currently playing
-  event.target.classList.add("playing");
+  event.target.classList.add('playing')
 
   // Assigns the values passed in the function to the DOM elements in the footer
-  songTitleFooter.innerHTML = footerSong;
-  artist.innerHTML = footerArtist;
-  footerCover.setAttribute("src", albumCover);
+  songTitleFooter.innerHTML = footerSong
+  artist.innerHTML = footerArtist
+  footerCover.setAttribute('src', albumCover)
 
-  audio.src = songPreview;
-  audio.play();
-};
+  audio.src = songPreview
+  audio.play()
+}
 
-pause.addEventListener("click", function () {
-  audio.pause();
-});
-play.addEventListener("click", function () {
-  audio.play();
-});
+pause.addEventListener('click', function () {
+  audio.pause()
+})
+play.addEventListener('click', function () {
+  audio.play()
+})
 const playerControls = () => {
-  pause.classList.toggle("d-none");
-  play.classList.toggle("d-none");
-};
+  pause.classList.toggle('d-none')
+  play.classList.toggle('d-none')
+}
