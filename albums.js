@@ -33,20 +33,23 @@ let fillDataAlbum = function (album) {
     <div class="col-2 col-sm-6" id="albumLeft"><img id="album-cover-album" src=${
       album.cover_xl
     }></div>
-    <div class="col-10 align-self-sm-center" id="albumRight">
+    <div class="col-10 col-sm-12" id="albumRight">
       <div class="album-text">
         <p class="album-small-text d-sm-none">ALBUM</p>
         <h2 class="album-name">${album.title}</h2>
         <div>
           <img id="artist-small-pic" src=${album.artist.picture_small}>
           <span>${album.artist.name}</span>
+          <div class="d-sm-flex d-sm-block d-none">
+          <span class="album-small-text d-sm-block">ALBUM</span>
           <span class="pl-1">${album.release_date}</span>
-          <span>${album.nb_tracks} songs</span>
-          <span>${
+          <span class="d-sm-none" >${album.nb_tracks} songs</span>
+          <span class="d-sm-none">${
             (album.duration - (album.duration %= 60)) / 60 +
             (9 < album.duration ? ":" : ":0") +
             album.duration
           } 
+          </div>
         </div>
        </div>`;
 };
